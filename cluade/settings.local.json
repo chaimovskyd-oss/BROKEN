@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 /dev/stdin:*)",
+      "Bash(node -e \"require\\(''fs''\\).writeFileSync\\(''C:/Users/chaim/Downloads/poker-box-modern-qr-4colour-ignis-zero-one-eleven/css/screens.css'', ''placeholder''\\); console.log\\(''ok''\\);\")",
+      "Bash(powershell.exe -Command \"Set-Content -Path ''C:\\\\Users\\\\chaim\\\\Downloads\\\\poker-box-modern-qr-4colour-ignis-zero-one-eleven\\\\css\\\\screens.css'' -Value ''placeholder'' -Encoding UTF8; Write-Host ''ok''\")",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(taskkill /f /im python.exe)"
+    ]
+  }
+}
