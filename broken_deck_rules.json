@@ -1,0 +1,4661 @@
+{
+  "version": "1.0",
+  "total_rules": 304,
+  "rules": [
+    {
+      "id": "R001",
+      "category": "hand_constraint",
+      "subcategory": "must_have",
+      "name_he": "חייב לפחות זוג",
+      "name_en": "Must have pair",
+      "risk": "low",
+      "stage_min": 1,
+      "stage_max": 99,
+      "multiplier": 1.1,
+      "description_technical": "hand.hasPair()==true",
+      "tags": [
+        "pair"
+      ]
+    },
+    {
+      "id": "R002",
+      "category": "hand_constraint",
+      "subcategory": "must_have",
+      "name_he": "חייב לפחות שני זוגות",
+      "name_en": "Must have two pair",
+      "risk": "medium",
+      "stage_min": 4,
+      "stage_max": 99,
+      "multiplier": 1.3,
+      "description_technical": "hand.hasTwoPair()==true",
+      "tags": [
+        "pair"
+      ]
+    },
+    {
+      "id": "R003",
+      "category": "hand_constraint",
+      "subcategory": "must_have",
+      "name_he": "חייב לפחות שלישייה",
+      "name_en": "Must have three of a kind",
+      "risk": "high",
+      "stage_min": 8,
+      "stage_max": 99,
+      "multiplier": 1.5,
+      "description_technical": "hand.hasThree()==true",
+      "tags": [
+        "set"
+      ]
+    },
+    {
+      "id": "R004",
+      "category": "hand_constraint",
+      "subcategory": "must_have",
+      "name_he": "חייב רביעייה",
+      "name_en": "Must have four of a kind",
+      "risk": "high",
+      "stage_min": 15,
+      "stage_max": 99,
+      "multiplier": 2.0,
+      "description_technical": "hand.hasFour()==true",
+      "tags": [
+        "set"
+      ]
+    },
+    {
+      "id": "R005",
+      "category": "hand_constraint",
+      "subcategory": "must_have",
+      "name_he": "חייב פול האוס",
+      "name_en": "Must have full house",
+      "risk": "high",
+      "stage_min": 12,
+      "stage_max": 99,
+      "multiplier": 1.8,
+      "description_technical": "hand.hasFullHouse()==true",
+      "tags": [
+        "pair",
+        "set"
+      ]
+    },
+    {
+      "id": "R006",
+      "category": "hand_constraint",
+      "subcategory": "must_have",
+      "name_he": "חייב סטרייט",
+      "name_en": "Must have straight",
+      "risk": "high",
+      "stage_min": 10,
+      "stage_max": 99,
+      "multiplier": 1.7,
+      "description_technical": "hand.isStraight()==true",
+      "tags": [
+        "sequence"
+      ]
+    },
+    {
+      "id": "R007",
+      "category": "hand_constraint",
+      "subcategory": "must_have",
+      "name_he": "חייב פלאש",
+      "name_en": "Must have flush",
+      "risk": "high",
+      "stage_min": 10,
+      "stage_max": 99,
+      "multiplier": 1.7,
+      "description_technical": "hand.isFlush()==true",
+      "tags": [
+        "suit"
+      ]
+    },
+    {
+      "id": "R008",
+      "category": "hand_constraint",
+      "subcategory": "must_have",
+      "name_he": "חייב סטרייט פלאש",
+      "name_en": "Must have straight flush",
+      "risk": "high",
+      "stage_min": 20,
+      "stage_max": 99,
+      "multiplier": 3.0,
+      "description_technical": "hand.isStraight()&&hand.isFlush()",
+      "tags": [
+        "sequence",
+        "suit"
+      ]
+    },
+    {
+      "id": "R009",
+      "category": "hand_constraint",
+      "subcategory": "must_have",
+      "name_he": "חייב לפחות קלף אחד אדום",
+      "name_en": "Must have red card",
+      "risk": "low",
+      "stage_min": 1,
+      "stage_max": 99,
+      "multiplier": 1.05,
+      "description_technical": "hand.hasColor('red')",
+      "tags": [
+        "color"
+      ]
+    },
+    {
+      "id": "R010",
+      "category": "hand_constraint",
+      "subcategory": "must_have",
+      "name_he": "חייב לפחות קלף שחור",
+      "name_en": "Must have black card",
+      "risk": "low",
+      "stage_min": 1,
+      "stage_max": 99,
+      "multiplier": 1.05,
+      "description_technical": "hand.hasColor('black')",
+      "tags": [
+        "color"
+      ]
+    },
+    {
+      "id": "R011",
+      "category": "hand_constraint",
+      "subcategory": "must_have",
+      "name_he": "חייב לפחות קלף מעל 10",
+      "name_en": "Must have card above 10",
+      "risk": "low",
+      "stage_min": 1,
+      "stage_max": 99,
+      "multiplier": 1.1,
+      "description_technical": "hand.any(c=>c.value>10)",
+      "tags": [
+        "value"
+      ]
+    },
+    {
+      "id": "R012",
+      "category": "hand_constraint",
+      "subcategory": "must_have",
+      "name_he": "חייב לפחות קלף בין 2-5",
+      "name_en": "Must have low card (2-5)",
+      "risk": "low",
+      "stage_min": 2,
+      "stage_max": 99,
+      "multiplier": 1.1,
+      "description_technical": "hand.any(c=>c.value>=2&&c.value<=5)",
+      "tags": [
+        "value"
+      ]
+    },
+    {
+      "id": "R013",
+      "category": "hand_constraint",
+      "subcategory": "must_have",
+      "name_he": "חייב לפחות אס אחד",
+      "name_en": "Must have an ace",
+      "risk": "medium",
+      "stage_min": 5,
+      "stage_max": 99,
+      "multiplier": 1.3,
+      "description_technical": "hand.any(c=>c.value==14)",
+      "tags": [
+        "value"
+      ]
+    },
+    {
+      "id": "R014",
+      "category": "hand_constraint",
+      "subcategory": "must_have",
+      "name_he": "חייב לפחות קלף פרצוף",
+      "name_en": "Must have face card",
+      "risk": "low",
+      "stage_min": 2,
+      "stage_max": 99,
+      "multiplier": 1.1,
+      "description_technical": "hand.any(c=>c.value>=11&&c.value<=13)",
+      "tags": [
+        "value"
+      ]
+    },
+    {
+      "id": "R015",
+      "category": "hand_constraint",
+      "subcategory": "must_have",
+      "name_he": "חייב בדיוק סוג אחד (suit)",
+      "name_en": "Must be single suit",
+      "risk": "high",
+      "stage_min": 12,
+      "stage_max": 99,
+      "multiplier": 1.8,
+      "description_technical": "hand.suitCount()==1",
+      "tags": [
+        "suit"
+      ]
+    },
+    {
+      "id": "R016",
+      "category": "hand_constraint",
+      "subcategory": "must_have",
+      "name_he": "חייב לפחות 3 סוגים שונים",
+      "name_en": "Must have 3+ suits",
+      "risk": "medium",
+      "stage_min": 5,
+      "stage_max": 99,
+      "multiplier": 1.3,
+      "description_technical": "hand.suitCount()>=3",
+      "tags": [
+        "suit"
+      ]
+    },
+    {
+      "id": "R017",
+      "category": "hand_constraint",
+      "subcategory": "must_have",
+      "name_he": "חייב לפחות 2 סוגים",
+      "name_en": "Must have 2+ suits",
+      "risk": "low",
+      "stage_min": 2,
+      "stage_max": 99,
+      "multiplier": 1.05,
+      "description_technical": "hand.suitCount()>=2",
+      "tags": [
+        "suit"
+      ]
+    },
+    {
+      "id": "R018",
+      "category": "hand_constraint",
+      "subcategory": "must_have",
+      "name_he": "חייב כל 4 הסוגים",
+      "name_en": "Must have all 4 suits",
+      "risk": "high",
+      "stage_min": 10,
+      "stage_max": 99,
+      "multiplier": 1.6,
+      "description_technical": "hand.suitCount()==4",
+      "tags": [
+        "suit"
+      ]
+    },
+    {
+      "id": "R019",
+      "category": "hand_constraint",
+      "subcategory": "must_have",
+      "name_he": "חייב מספר זוגי בלבד",
+      "name_en": "Must have even values only",
+      "risk": "high",
+      "stage_min": 8,
+      "stage_max": 99,
+      "multiplier": 1.7,
+      "description_technical": "hand.all(c=>c.value%2==0)",
+      "tags": [
+        "value"
+      ]
+    },
+    {
+      "id": "R020",
+      "category": "hand_constraint",
+      "subcategory": "must_have",
+      "name_he": "חייב מספר אי-זוגי בלבד",
+      "name_en": "Must have odd values only",
+      "risk": "high",
+      "stage_min": 8,
+      "stage_max": 99,
+      "multiplier": 1.7,
+      "description_technical": "hand.all(c=>c.value%2==1)",
+      "tags": [
+        "value"
+      ]
+    },
+    {
+      "id": "R021",
+      "category": "hand_constraint",
+      "subcategory": "must_have",
+      "name_he": "חייב סכום מעל 35",
+      "name_en": "Hand sum must exceed 35",
+      "risk": "medium",
+      "stage_min": 4,
+      "stage_max": 99,
+      "multiplier": 1.3,
+      "description_technical": "hand.sum()>35",
+      "tags": [
+        "value"
+      ]
+    },
+    {
+      "id": "R022",
+      "category": "hand_constraint",
+      "subcategory": "must_have",
+      "name_he": "חייב סכום מתחת ל-25",
+      "name_en": "Hand sum must be under 25",
+      "risk": "medium",
+      "stage_min": 6,
+      "stage_max": 99,
+      "multiplier": 1.4,
+      "description_technical": "hand.sum()<25",
+      "tags": [
+        "value"
+      ]
+    },
+    {
+      "id": "R023",
+      "category": "hand_constraint",
+      "subcategory": "must_have",
+      "name_he": "חייב סכום זוגי",
+      "name_en": "Hand sum must be even",
+      "risk": "low",
+      "stage_min": 3,
+      "stage_max": 99,
+      "multiplier": 1.15,
+      "description_technical": "hand.sum()%2==0",
+      "tags": [
+        "value"
+      ]
+    },
+    {
+      "id": "R024",
+      "category": "hand_constraint",
+      "subcategory": "must_have",
+      "name_he": "חייב רצף של 3 לפחות",
+      "name_en": "Must have run of 3+",
+      "risk": "medium",
+      "stage_min": 5,
+      "stage_max": 99,
+      "multiplier": 1.3,
+      "description_technical": "hand.hasRun(3)",
+      "tags": [
+        "sequence"
+      ]
+    },
+    {
+      "id": "R025",
+      "category": "hand_constraint",
+      "subcategory": "must_have",
+      "name_he": "חייב 2 קלפים רצופים לפחות",
+      "name_en": "Must have 2 consecutive",
+      "risk": "low",
+      "stage_min": 2,
+      "stage_max": 99,
+      "multiplier": 1.1,
+      "description_technical": "hand.hasRun(2)",
+      "tags": [
+        "sequence"
+      ]
+    },
+    {
+      "id": "R026",
+      "category": "hand_constraint",
+      "subcategory": "forbidden",
+      "name_he": "אסור זוגות",
+      "name_en": "No pairs allowed",
+      "risk": "medium",
+      "stage_min": 4,
+      "stage_max": 99,
+      "multiplier": 1.3,
+      "description_technical": "hand.hasPair()==false",
+      "tags": [
+        "pair"
+      ]
+    },
+    {
+      "id": "R027",
+      "category": "hand_constraint",
+      "subcategory": "forbidden",
+      "name_he": "אסור שלישיות",
+      "name_en": "No three of a kind",
+      "risk": "low",
+      "stage_min": 3,
+      "stage_max": 99,
+      "multiplier": 1.15,
+      "description_technical": "hand.hasThree()==false",
+      "tags": [
+        "set"
+      ]
+    },
+    {
+      "id": "R028",
+      "category": "hand_constraint",
+      "subcategory": "forbidden",
+      "name_he": "אסור סטרייט",
+      "name_en": "No straights",
+      "risk": "low",
+      "stage_min": 2,
+      "stage_max": 99,
+      "multiplier": 1.1,
+      "description_technical": "hand.isStraight()==false",
+      "tags": [
+        "sequence"
+      ]
+    },
+    {
+      "id": "R029",
+      "category": "hand_constraint",
+      "subcategory": "forbidden",
+      "name_he": "אסור פלאש",
+      "name_en": "No flush",
+      "risk": "low",
+      "stage_min": 2,
+      "stage_max": 99,
+      "multiplier": 1.1,
+      "description_technical": "hand.isFlush()==false",
+      "tags": [
+        "suit"
+      ]
+    },
+    {
+      "id": "R030",
+      "category": "hand_constraint",
+      "subcategory": "forbidden",
+      "name_he": "אסור לבבות",
+      "name_en": "No hearts allowed",
+      "risk": "medium",
+      "stage_min": 3,
+      "stage_max": 99,
+      "multiplier": 1.25,
+      "description_technical": "hand.none(c=>c.suit=='hearts')",
+      "tags": [
+        "suit"
+      ]
+    },
+    {
+      "id": "R031",
+      "category": "hand_constraint",
+      "subcategory": "forbidden",
+      "name_he": "אסור עלים (♠)",
+      "name_en": "No spades allowed",
+      "risk": "medium",
+      "stage_min": 3,
+      "stage_max": 99,
+      "multiplier": 1.25,
+      "description_technical": "hand.none(c=>c.suit=='spades')",
+      "tags": [
+        "suit"
+      ]
+    },
+    {
+      "id": "R032",
+      "category": "hand_constraint",
+      "subcategory": "forbidden",
+      "name_he": "אסור יהלומים",
+      "name_en": "No diamonds allowed",
+      "risk": "medium",
+      "stage_min": 3,
+      "stage_max": 99,
+      "multiplier": 1.25,
+      "description_technical": "hand.none(c=>c.suit=='diamonds')",
+      "tags": [
+        "suit"
+      ]
+    },
+    {
+      "id": "R033",
+      "category": "hand_constraint",
+      "subcategory": "forbidden",
+      "name_he": "אסור תלתנים",
+      "name_en": "No clubs allowed",
+      "risk": "medium",
+      "stage_min": 3,
+      "stage_max": 99,
+      "multiplier": 1.25,
+      "description_technical": "hand.none(c=>c.suit=='clubs')",
+      "tags": [
+        "suit"
+      ]
+    },
+    {
+      "id": "R034",
+      "category": "hand_constraint",
+      "subcategory": "forbidden",
+      "name_he": "אסור קלפים מעל 10",
+      "name_en": "No cards above 10",
+      "risk": "medium",
+      "stage_min": 5,
+      "stage_max": 99,
+      "multiplier": 1.35,
+      "description_technical": "hand.all(c=>c.value<=10)",
+      "tags": [
+        "value"
+      ]
+    },
+    {
+      "id": "R035",
+      "category": "hand_constraint",
+      "subcategory": "forbidden",
+      "name_he": "אסור קלפים מתחת ל-6",
+      "name_en": "No cards below 6",
+      "risk": "medium",
+      "stage_min": 5,
+      "stage_max": 99,
+      "multiplier": 1.35,
+      "description_technical": "hand.all(c=>c.value>=6)",
+      "tags": [
+        "value"
+      ]
+    },
+    {
+      "id": "R036",
+      "category": "hand_constraint",
+      "subcategory": "forbidden",
+      "name_he": "אסור אסים",
+      "name_en": "No aces allowed",
+      "risk": "medium",
+      "stage_min": 4,
+      "stage_max": 99,
+      "multiplier": 1.2,
+      "description_technical": "hand.none(c=>c.value==14)",
+      "tags": [
+        "value"
+      ]
+    },
+    {
+      "id": "R037",
+      "category": "hand_constraint",
+      "subcategory": "forbidden",
+      "name_he": "אסור פרצופים",
+      "name_en": "No face cards (J/Q/K)",
+      "risk": "medium",
+      "stage_min": 5,
+      "stage_max": 99,
+      "multiplier": 1.3,
+      "description_technical": "hand.all(c=>c.value<11||c.value>13)",
+      "tags": [
+        "value"
+      ]
+    },
+    {
+      "id": "R038",
+      "category": "hand_constraint",
+      "subcategory": "forbidden",
+      "name_he": "אסור קלפים אדומים",
+      "name_en": "No red cards",
+      "risk": "high",
+      "stage_min": 8,
+      "stage_max": 99,
+      "multiplier": 1.6,
+      "description_technical": "hand.all(c=>c.color=='black')",
+      "tags": [
+        "color"
+      ]
+    },
+    {
+      "id": "R039",
+      "category": "hand_constraint",
+      "subcategory": "forbidden",
+      "name_he": "אסור קלפים שחורים",
+      "name_en": "No black cards",
+      "risk": "high",
+      "stage_min": 8,
+      "stage_max": 99,
+      "multiplier": 1.6,
+      "description_technical": "hand.all(c=>c.color=='red')",
+      "tags": [
+        "color"
+      ]
+    },
+    {
+      "id": "R040",
+      "category": "hand_constraint",
+      "subcategory": "forbidden",
+      "name_he": "אסור שני קלפים מאותו סוג",
+      "name_en": "No two cards of same suit",
+      "risk": "medium",
+      "stage_min": 6,
+      "stage_max": 99,
+      "multiplier": 1.4,
+      "description_technical": "hand.maxSuitCount()<=1",
+      "tags": [
+        "suit"
+      ]
+    },
+    {
+      "id": "R041",
+      "category": "hand_constraint",
+      "subcategory": "forbidden",
+      "name_he": "אסור קלפים חוזרים בערך",
+      "name_en": "All values must be unique",
+      "risk": "medium",
+      "stage_min": 4,
+      "stage_max": 99,
+      "multiplier": 1.3,
+      "description_technical": "hand.allDiffValues()",
+      "tags": [
+        "value"
+      ]
+    },
+    {
+      "id": "R042",
+      "category": "hand_constraint",
+      "subcategory": "forbidden",
+      "name_he": "אסור מספרים ראשוניים",
+      "name_en": "No prime values (2,3,5,7,11,13)",
+      "risk": "medium",
+      "stage_min": 6,
+      "stage_max": 99,
+      "multiplier": 1.35,
+      "description_technical": "hand.none(c=>[2,3,5,7,11,13].includes(c.value))",
+      "tags": [
+        "value"
+      ]
+    },
+    {
+      "id": "R043",
+      "category": "hand_constraint",
+      "subcategory": "forbidden",
+      "name_he": "אסור מלכים",
+      "name_en": "No kings allowed",
+      "risk": "low",
+      "stage_min": 3,
+      "stage_max": 99,
+      "multiplier": 1.15,
+      "description_technical": "hand.none(c=>c.value==13)",
+      "tags": [
+        "value"
+      ]
+    },
+    {
+      "id": "R044",
+      "category": "hand_constraint",
+      "subcategory": "forbidden",
+      "name_he": "אסור מלכות",
+      "name_en": "No queens allowed",
+      "risk": "low",
+      "stage_min": 3,
+      "stage_max": 99,
+      "multiplier": 1.15,
+      "description_technical": "hand.none(c=>c.value==12)",
+      "tags": [
+        "value"
+      ]
+    },
+    {
+      "id": "R045",
+      "category": "hand_constraint",
+      "subcategory": "hand_size",
+      "name_he": "בדיוק 4 קלפים ביד",
+      "name_en": "Exactly 4 cards in hand",
+      "risk": "medium",
+      "stage_min": 6,
+      "stage_max": 99,
+      "multiplier": 1.4,
+      "description_technical": "hand.size()==4",
+      "tags": [
+        "structure"
+      ]
+    },
+    {
+      "id": "R046",
+      "category": "hand_constraint",
+      "subcategory": "hand_size",
+      "name_he": "בדיוק 3 קלפים ביד",
+      "name_en": "Exactly 3 cards in hand",
+      "risk": "high",
+      "stage_min": 10,
+      "stage_max": 99,
+      "multiplier": 1.8,
+      "description_technical": "hand.size()==3",
+      "tags": [
+        "structure"
+      ]
+    },
+    {
+      "id": "R047",
+      "category": "hand_constraint",
+      "subcategory": "hand_size",
+      "name_he": "בדיוק 6 קלפים ביד",
+      "name_en": "Exactly 6 cards in hand",
+      "risk": "medium",
+      "stage_min": 5,
+      "stage_max": 99,
+      "multiplier": 1.25,
+      "description_technical": "hand.size()==6",
+      "tags": [
+        "structure"
+      ]
+    },
+    {
+      "id": "R048",
+      "category": "hand_constraint",
+      "subcategory": "hand_size",
+      "name_he": "לפחות 6 קלפים ביד",
+      "name_en": "At least 6 cards",
+      "risk": "low",
+      "stage_min": 4,
+      "stage_max": 99,
+      "multiplier": 1.15,
+      "description_technical": "hand.size()>=6",
+      "tags": [
+        "structure"
+      ]
+    },
+    {
+      "id": "R049",
+      "category": "hand_constraint",
+      "subcategory": "hand_size",
+      "name_he": "מקסימום 4 קלפים",
+      "name_en": "Max 4 cards in hand",
+      "risk": "medium",
+      "stage_min": 6,
+      "stage_max": 99,
+      "multiplier": 1.3,
+      "description_technical": "hand.size()<=4",
+      "tags": [
+        "structure"
+      ]
+    },
+    {
+      "id": "R050",
+      "category": "hand_constraint",
+      "subcategory": "range",
+      "name_he": "רק 2-7",
+      "name_en": "Only cards 2 through 7",
+      "risk": "high",
+      "stage_min": 8,
+      "stage_max": 99,
+      "multiplier": 1.6,
+      "description_technical": "hand.all(c=>c.value>=2&&c.value<=7)",
+      "tags": [
+        "value"
+      ]
+    },
+    {
+      "id": "R051",
+      "category": "hand_constraint",
+      "subcategory": "range",
+      "name_he": "רק 8-A",
+      "name_en": "Only cards 8 through A",
+      "risk": "high",
+      "stage_min": 8,
+      "stage_max": 99,
+      "multiplier": 1.6,
+      "description_technical": "hand.all(c=>c.value>=8)",
+      "tags": [
+        "value"
+      ]
+    },
+    {
+      "id": "R052",
+      "category": "hand_constraint",
+      "subcategory": "range",
+      "name_he": "רק 5-10",
+      "name_en": "Only cards 5 through 10",
+      "risk": "high",
+      "stage_min": 10,
+      "stage_max": 99,
+      "multiplier": 1.7,
+      "description_technical": "hand.all(c=>c.value>=5&&c.value<=10)",
+      "tags": [
+        "value"
+      ]
+    },
+    {
+      "id": "R053",
+      "category": "hand_constraint",
+      "subcategory": "range",
+      "name_he": "טווח מקסימלי 4",
+      "name_en": "Max range of 4 between cards",
+      "risk": "medium",
+      "stage_min": 6,
+      "stage_max": 99,
+      "multiplier": 1.35,
+      "description_technical": "hand.maxValue()-hand.minValue()<=4",
+      "tags": [
+        "value"
+      ]
+    },
+    {
+      "id": "R054",
+      "category": "hand_constraint",
+      "subcategory": "range",
+      "name_he": "טווח מינימלי 8",
+      "name_en": "Min range of 8 between cards",
+      "risk": "medium",
+      "stage_min": 6,
+      "stage_max": 99,
+      "multiplier": 1.35,
+      "description_technical": "hand.maxValue()-hand.minValue()>=8",
+      "tags": [
+        "value"
+      ]
+    },
+    {
+      "id": "R055",
+      "category": "score_modifier",
+      "subcategory": "suit_mult",
+      "name_he": "לבבות ×2",
+      "name_en": "Hearts score ×2",
+      "risk": "low",
+      "stage_min": 1,
+      "stage_max": 99,
+      "multiplier": 1.1,
+      "description_technical": "hearts.multiplier=2",
+      "tags": [
+        "suit",
+        "bonus"
+      ]
+    },
+    {
+      "id": "R056",
+      "category": "score_modifier",
+      "subcategory": "suit_mult",
+      "name_he": "עלים ×2",
+      "name_en": "Spades score ×2",
+      "risk": "low",
+      "stage_min": 1,
+      "stage_max": 99,
+      "multiplier": 1.1,
+      "description_technical": "spades.multiplier=2",
+      "tags": [
+        "suit",
+        "bonus"
+      ]
+    },
+    {
+      "id": "R057",
+      "category": "score_modifier",
+      "subcategory": "suit_mult",
+      "name_he": "יהלומים ×1.5",
+      "name_en": "Diamonds score ×1.5",
+      "risk": "low",
+      "stage_min": 1,
+      "stage_max": 99,
+      "multiplier": 1.05,
+      "description_technical": "diamonds.multiplier=1.5",
+      "tags": [
+        "suit",
+        "bonus"
+      ]
+    },
+    {
+      "id": "R058",
+      "category": "score_modifier",
+      "subcategory": "suit_mult",
+      "name_he": "תלתנים ×1.5",
+      "name_en": "Clubs score ×1.5",
+      "risk": "low",
+      "stage_min": 1,
+      "stage_max": 99,
+      "multiplier": 1.05,
+      "description_technical": "clubs.multiplier=1.5",
+      "tags": [
+        "suit",
+        "bonus"
+      ]
+    },
+    {
+      "id": "R059",
+      "category": "score_modifier",
+      "subcategory": "suit_mult",
+      "name_he": "לבבות שווים 0",
+      "name_en": "Hearts worth 0 points",
+      "risk": "medium",
+      "stage_min": 5,
+      "stage_max": 99,
+      "multiplier": 1.3,
+      "description_technical": "hearts.value=0",
+      "tags": [
+        "suit",
+        "penalty"
+      ]
+    },
+    {
+      "id": "R060",
+      "category": "score_modifier",
+      "subcategory": "suit_mult",
+      "name_he": "עלים שווים 0",
+      "name_en": "Spades worth 0 points",
+      "risk": "medium",
+      "stage_min": 5,
+      "stage_max": 99,
+      "multiplier": 1.3,
+      "description_technical": "spades.value=0",
+      "tags": [
+        "suit",
+        "penalty"
+      ]
+    },
+    {
+      "id": "R061",
+      "category": "score_modifier",
+      "subcategory": "suit_mult",
+      "name_he": "הסוג הדומיננטי ×3",
+      "name_en": "Dominant suit ×3",
+      "risk": "low",
+      "stage_min": 3,
+      "stage_max": 99,
+      "multiplier": 1.2,
+      "description_technical": "dominantSuit.multiplier=3",
+      "tags": [
+        "suit",
+        "bonus"
+      ]
+    },
+    {
+      "id": "R062",
+      "category": "score_modifier",
+      "subcategory": "suit_mult",
+      "name_he": "סוג יחיד ×5",
+      "name_en": "Single suit hand ×5",
+      "risk": "medium",
+      "stage_min": 6,
+      "stage_max": 99,
+      "multiplier": 1.5,
+      "description_technical": "if(suitCount==1) multiplier*=5",
+      "tags": [
+        "suit",
+        "bonus"
+      ]
+    },
+    {
+      "id": "R063",
+      "category": "score_modifier",
+      "subcategory": "value_mod",
+      "name_he": "אס = 1 בלבד",
+      "name_en": "Ace counts as 1 only",
+      "risk": "low",
+      "stage_min": 2,
+      "stage_max": 99,
+      "multiplier": 1.1,
+      "description_technical": "ace.value=1",
+      "tags": [
+        "value"
+      ]
+    },
+    {
+      "id": "R064",
+      "category": "score_modifier",
+      "subcategory": "value_mod",
+      "name_he": "אס = 15",
+      "name_en": "Ace counts as 15",
+      "risk": "low",
+      "stage_min": 2,
+      "stage_max": 99,
+      "multiplier": 1.1,
+      "description_technical": "ace.value=15",
+      "tags": [
+        "value"
+      ]
+    },
+    {
+      "id": "R065",
+      "category": "score_modifier",
+      "subcategory": "value_mod",
+      "name_he": "מלכים שווים 0",
+      "name_en": "Kings worth 0 points",
+      "risk": "medium",
+      "stage_min": 4,
+      "stage_max": 99,
+      "multiplier": 1.25,
+      "description_technical": "king.value=0",
+      "tags": [
+        "value",
+        "penalty"
+      ]
+    },
+    {
+      "id": "R066",
+      "category": "score_modifier",
+      "subcategory": "value_mod",
+      "name_he": "מלכות שוות 20",
+      "name_en": "Queens worth 20 points",
+      "risk": "low",
+      "stage_min": 3,
+      "stage_max": 99,
+      "multiplier": 1.15,
+      "description_technical": "queen.value=20",
+      "tags": [
+        "value",
+        "bonus"
+      ]
+    },
+    {
+      "id": "R067",
+      "category": "score_modifier",
+      "subcategory": "value_mod",
+      "name_he": "קלפים זוגיים ×1.5",
+      "name_en": "Even cards ×1.5",
+      "risk": "low",
+      "stage_min": 2,
+      "stage_max": 99,
+      "multiplier": 1.1,
+      "description_technical": "evenCards.multiplier=1.5",
+      "tags": [
+        "value",
+        "bonus"
+      ]
+    },
+    {
+      "id": "R068",
+      "category": "score_modifier",
+      "subcategory": "value_mod",
+      "name_he": "קלפים אי-זוגיים ×1.5",
+      "name_en": "Odd cards ×1.5",
+      "risk": "low",
+      "stage_min": 2,
+      "stage_max": 99,
+      "multiplier": 1.1,
+      "description_technical": "oddCards.multiplier=1.5",
+      "tags": [
+        "value",
+        "bonus"
+      ]
+    },
+    {
+      "id": "R069",
+      "category": "score_modifier",
+      "subcategory": "value_mod",
+      "name_he": "ערכים נמוכים (2-5) ×2",
+      "name_en": "Low cards (2-5) ×2",
+      "risk": "low",
+      "stage_min": 3,
+      "stage_max": 99,
+      "multiplier": 1.15,
+      "description_technical": "lowCards.multiplier=2",
+      "tags": [
+        "value",
+        "bonus"
+      ]
+    },
+    {
+      "id": "R070",
+      "category": "score_modifier",
+      "subcategory": "value_mod",
+      "name_he": "ערכים גבוהים (J-A) ×2",
+      "name_en": "High cards (J-A) ×2",
+      "risk": "low",
+      "stage_min": 3,
+      "stage_max": 99,
+      "multiplier": 1.15,
+      "description_technical": "highCards.multiplier=2",
+      "tags": [
+        "value",
+        "bonus"
+      ]
+    },
+    {
+      "id": "R071",
+      "category": "score_modifier",
+      "subcategory": "value_mod",
+      "name_he": "כל 7 שווה 77 נקודות",
+      "name_en": "Every 7 worth 77 points",
+      "risk": "low",
+      "stage_min": 2,
+      "stage_max": 99,
+      "multiplier": 1.1,
+      "description_technical": "card7.value=77",
+      "tags": [
+        "value",
+        "bonus"
+      ]
+    },
+    {
+      "id": "R072",
+      "category": "score_modifier",
+      "subcategory": "value_mod",
+      "name_he": "כל 2 שווה -10",
+      "name_en": "Every 2 worth -10",
+      "risk": "medium",
+      "stage_min": 5,
+      "stage_max": 99,
+      "multiplier": 1.25,
+      "description_technical": "card2.value=-10",
+      "tags": [
+        "value",
+        "penalty"
+      ]
+    },
+    {
+      "id": "R073",
+      "category": "score_modifier",
+      "subcategory": "value_mod",
+      "name_he": "ערך הקלף הגבוה ×3",
+      "name_en": "Highest card value ×3",
+      "risk": "low",
+      "stage_min": 2,
+      "stage_max": 99,
+      "multiplier": 1.1,
+      "description_technical": "maxCard.multiplier=3",
+      "tags": [
+        "value",
+        "bonus"
+      ]
+    },
+    {
+      "id": "R074",
+      "category": "score_modifier",
+      "subcategory": "value_mod",
+      "name_he": "ערך הקלף הנמוך ×0",
+      "name_en": "Lowest card worth 0",
+      "risk": "medium",
+      "stage_min": 4,
+      "stage_max": 99,
+      "multiplier": 1.2,
+      "description_technical": "minCard.value=0",
+      "tags": [
+        "value",
+        "penalty"
+      ]
+    },
+    {
+      "id": "R075",
+      "category": "score_modifier",
+      "subcategory": "hand_type",
+      "name_he": "זוג שווה 50",
+      "name_en": "Pair worth 50 points",
+      "risk": "low",
+      "stage_min": 1,
+      "stage_max": 99,
+      "multiplier": 1.1,
+      "description_technical": "pair.baseScore=50",
+      "tags": [
+        "hand_type"
+      ]
+    },
+    {
+      "id": "R076",
+      "category": "score_modifier",
+      "subcategory": "hand_type",
+      "name_he": "High Card שווה 25",
+      "name_en": "High Card worth 25",
+      "risk": "low",
+      "stage_min": 1,
+      "stage_max": 99,
+      "multiplier": 1.05,
+      "description_technical": "highCard.baseScore=25",
+      "tags": [
+        "hand_type"
+      ]
+    },
+    {
+      "id": "R077",
+      "category": "score_modifier",
+      "subcategory": "hand_type",
+      "name_he": "שלישייה ×2",
+      "name_en": "Three of a kind ×2",
+      "risk": "low",
+      "stage_min": 2,
+      "stage_max": 99,
+      "multiplier": 1.15,
+      "description_technical": "threeKind.multiplier=2",
+      "tags": [
+        "hand_type"
+      ]
+    },
+    {
+      "id": "R078",
+      "category": "score_modifier",
+      "subcategory": "hand_type",
+      "name_he": "פול האוס ×3",
+      "name_en": "Full house ×3",
+      "risk": "medium",
+      "stage_min": 5,
+      "stage_max": 99,
+      "multiplier": 1.3,
+      "description_technical": "fullHouse.multiplier=3",
+      "tags": [
+        "hand_type"
+      ]
+    },
+    {
+      "id": "R079",
+      "category": "score_modifier",
+      "subcategory": "hand_type",
+      "name_he": "סטרייט פלאש ×5",
+      "name_en": "Straight flush ×5",
+      "risk": "medium",
+      "stage_min": 6,
+      "stage_max": 99,
+      "multiplier": 1.4,
+      "description_technical": "straightFlush.multiplier=5",
+      "tags": [
+        "hand_type"
+      ]
+    },
+    {
+      "id": "R080",
+      "category": "score_modifier",
+      "subcategory": "hand_type",
+      "name_he": "שני זוגות שווה יותר משלישייה",
+      "name_en": "Two pair ranks above three",
+      "risk": "medium",
+      "stage_min": 5,
+      "stage_max": 99,
+      "multiplier": 1.25,
+      "description_technical": "twoPair.rank>threeKind.rank",
+      "tags": [
+        "hand_type"
+      ]
+    },
+    {
+      "id": "R081",
+      "category": "score_modifier",
+      "subcategory": "hand_type",
+      "name_he": "High Card ×3 אם כל הקלפים שונים",
+      "name_en": "HC ×3 if all different",
+      "risk": "low",
+      "stage_min": 3,
+      "stage_max": 99,
+      "multiplier": 1.2,
+      "description_technical": "if(allDiff) highCard.multiplier=3",
+      "tags": [
+        "hand_type"
+      ]
+    },
+    {
+      "id": "R082",
+      "category": "score_modifier",
+      "subcategory": "hand_type",
+      "name_he": "פלאש שווה פחות מסטרייט",
+      "name_en": "Flush ranks below straight",
+      "risk": "low",
+      "stage_min": 3,
+      "stage_max": 99,
+      "multiplier": 1.1,
+      "description_technical": "flush.rank<straight.rank",
+      "tags": [
+        "hand_type"
+      ]
+    },
+    {
+      "id": "R083",
+      "category": "score_modifier",
+      "subcategory": "hand_type",
+      "name_he": "רביעייה ×4",
+      "name_en": "Four of a kind ×4",
+      "risk": "medium",
+      "stage_min": 5,
+      "stage_max": 99,
+      "multiplier": 1.35,
+      "description_technical": "fourKind.multiplier=4",
+      "tags": [
+        "hand_type"
+      ]
+    },
+    {
+      "id": "R084",
+      "category": "score_modifier",
+      "subcategory": "combo",
+      "name_he": "בונוס 100 על כל 4 סוגים",
+      "name_en": "100 bonus for all 4 suits",
+      "risk": "low",
+      "stage_min": 3,
+      "stage_max": 99,
+      "multiplier": 1.15,
+      "description_technical": "if(suitCount==4) bonus+=100",
+      "tags": [
+        "combo"
+      ]
+    },
+    {
+      "id": "R085",
+      "category": "score_modifier",
+      "subcategory": "combo",
+      "name_he": "בונוס 50 על רצף של 3+",
+      "name_en": "50 bonus for run of 3+",
+      "risk": "low",
+      "stage_min": 2,
+      "stage_max": 99,
+      "multiplier": 1.1,
+      "description_technical": "if(hasRun(3)) bonus+=50",
+      "tags": [
+        "combo"
+      ]
+    },
+    {
+      "id": "R086",
+      "category": "score_modifier",
+      "subcategory": "combo",
+      "name_he": "בונוס 200 על יד מושלמת",
+      "name_en": "200 for perfect hand",
+      "risk": "medium",
+      "stage_min": 5,
+      "stage_max": 99,
+      "multiplier": 1.3,
+      "description_technical": "if(meetsAllConstraints&&handType>=FLUSH) bonus+=200",
+      "tags": [
+        "combo"
+      ]
+    },
+    {
+      "id": "R087",
+      "category": "score_modifier",
+      "subcategory": "combo",
+      "name_he": "כל חוק פעיל = +5%",
+      "name_en": "Each active rule +5%",
+      "risk": "low",
+      "stage_min": 1,
+      "stage_max": 99,
+      "multiplier": 1.0,
+      "description_technical": "multiplier+=activeRules.length*0.05",
+      "tags": [
+        "combo",
+        "scaling"
+      ]
+    },
+    {
+      "id": "R088",
+      "category": "score_modifier",
+      "subcategory": "combo",
+      "name_he": "בונוס סיכון: יציבות מתחת ל-30% = ×2",
+      "name_en": "Risk bonus: stability<30% ×2",
+      "risk": "medium",
+      "stage_min": 8,
+      "stage_max": 99,
+      "multiplier": 1.5,
+      "description_technical": "if(stability<30) multiplier*=2",
+      "tags": [
+        "combo",
+        "risk"
+      ]
+    },
+    {
+      "id": "R089",
+      "category": "score_modifier",
+      "subcategory": "combo",
+      "name_he": "בונוס כמעט-שבירה = ×3",
+      "name_en": "Near-break bonus ×3",
+      "risk": "high",
+      "stage_min": 12,
+      "stage_max": 99,
+      "multiplier": 2.0,
+      "description_technical": "if(validHandPct<5) multiplier*=3",
+      "tags": [
+        "combo",
+        "risk"
+      ]
+    },
+    {
+      "id": "R090",
+      "category": "score_modifier",
+      "subcategory": "combo",
+      "name_he": "חוקים סותרים = +25% לכל סתירה",
+      "name_en": "Conflict bonus +25% each",
+      "risk": "medium",
+      "stage_min": 6,
+      "stage_max": 99,
+      "multiplier": 1.3,
+      "description_technical": "multiplier+=conflicts*0.25",
+      "tags": [
+        "combo",
+        "risk"
+      ]
+    },
+    {
+      "id": "R091",
+      "category": "score_modifier",
+      "subcategory": "combo",
+      "name_he": "3+ חוקים מאותה קטגוריה = ×1.5",
+      "name_en": "3+ rules same category ×1.5",
+      "risk": "low",
+      "stage_min": 4,
+      "stage_max": 99,
+      "multiplier": 1.15,
+      "description_technical": "if(catCount>=3) multiplier*=1.5",
+      "tags": [
+        "combo"
+      ]
+    },
+    {
+      "id": "R092",
+      "category": "score_modifier",
+      "subcategory": "combo",
+      "name_he": "5+ חוקים פעילים = ×1.3",
+      "name_en": "5+ active rules ×1.3",
+      "risk": "low",
+      "stage_min": 5,
+      "stage_max": 99,
+      "multiplier": 1.1,
+      "description_technical": "if(activeRules>=5) multiplier*=1.3",
+      "tags": [
+        "combo",
+        "scaling"
+      ]
+    },
+    {
+      "id": "R093",
+      "category": "score_modifier",
+      "subcategory": "combo",
+      "name_he": "10+ חוקים = ×1.5",
+      "name_en": "10+ rules ×1.5",
+      "risk": "medium",
+      "stage_min": 10,
+      "stage_max": 99,
+      "multiplier": 1.2,
+      "description_technical": "if(activeRules>=10) multiplier*=1.5",
+      "tags": [
+        "combo",
+        "scaling"
+      ]
+    },
+    {
+      "id": "R094",
+      "category": "score_modifier",
+      "subcategory": "penalty",
+      "name_he": "כל קלף אדום מוריד 5",
+      "name_en": "Each red card -5 points",
+      "risk": "medium",
+      "stage_min": 5,
+      "stage_max": 99,
+      "multiplier": 1.3,
+      "description_technical": "redCards.forEach(c=>score-=5)",
+      "tags": [
+        "penalty"
+      ]
+    },
+    {
+      "id": "R095",
+      "category": "score_modifier",
+      "subcategory": "penalty",
+      "name_he": "כל קלף כפול מוריד 10",
+      "name_en": "Each duplicate value -10",
+      "risk": "medium",
+      "stage_min": 5,
+      "stage_max": 99,
+      "multiplier": 1.25,
+      "description_technical": "duplicates.forEach(()=>score-=10)",
+      "tags": [
+        "penalty"
+      ]
+    },
+    {
+      "id": "R096",
+      "category": "score_modifier",
+      "subcategory": "penalty",
+      "name_he": "פרצופים מורידים 15 כל אחד",
+      "name_en": "Face cards -15 each",
+      "risk": "medium",
+      "stage_min": 6,
+      "stage_max": 99,
+      "multiplier": 1.35,
+      "description_technical": "faceCards.forEach(()=>score-=15)",
+      "tags": [
+        "penalty"
+      ]
+    },
+    {
+      "id": "R097",
+      "category": "score_modifier",
+      "subcategory": "penalty",
+      "name_he": "יד חלשה = -50",
+      "name_en": "Weak hand (HC) = -50",
+      "risk": "medium",
+      "stage_min": 4,
+      "stage_max": 99,
+      "multiplier": 1.2,
+      "description_technical": "if(handType==HIGH_CARD) score-=50",
+      "tags": [
+        "penalty"
+      ]
+    },
+    {
+      "id": "R098",
+      "category": "score_modifier",
+      "subcategory": "penalty",
+      "name_he": "סוג יחיד = ניקוד ÷2",
+      "name_en": "Single suit = score halved",
+      "risk": "high",
+      "stage_min": 8,
+      "stage_max": 99,
+      "multiplier": 1.5,
+      "description_technical": "if(suitCount==1) score/=2",
+      "tags": [
+        "penalty"
+      ]
+    },
+    {
+      "id": "R099",
+      "category": "score_modifier",
+      "subcategory": "special",
+      "name_he": "ניקוד הפוך: יד חלשה = חזקה",
+      "name_en": "Inverse scoring",
+      "risk": "high",
+      "stage_min": 12,
+      "stage_max": 99,
+      "multiplier": 2.0,
+      "description_technical": "handRank=MAX_RANK-handRank",
+      "tags": [
+        "special"
+      ]
+    },
+    {
+      "id": "R100",
+      "category": "score_modifier",
+      "subcategory": "special",
+      "name_he": "ניקוד רנדומלי ×0.5–×2",
+      "name_en": "Random multiplier 0.5-2",
+      "risk": "medium",
+      "stage_min": 6,
+      "stage_max": 99,
+      "multiplier": 1.3,
+      "description_technical": "multiplier*=random(0.5,2)",
+      "tags": [
+        "special",
+        "chaos"
+      ]
+    },
+    {
+      "id": "R101",
+      "category": "score_modifier",
+      "subcategory": "special",
+      "name_he": "ניקוד על סמך מספר חוקים פעילים",
+      "name_en": "Score = rules × base",
+      "risk": "medium",
+      "stage_min": 8,
+      "stage_max": 99,
+      "multiplier": 1.4,
+      "description_technical": "score=activeRules*baseHandScore",
+      "tags": [
+        "special",
+        "scaling"
+      ]
+    },
+    {
+      "id": "R102",
+      "category": "score_modifier",
+      "subcategory": "special",
+      "name_he": "ניקוד כפול אם סכום היד ראשוני",
+      "name_en": "Double if sum is prime",
+      "risk": "medium",
+      "stage_min": 7,
+      "stage_max": 99,
+      "multiplier": 1.35,
+      "description_technical": "if(isPrime(sum)) score*=2",
+      "tags": [
+        "special"
+      ]
+    },
+    {
+      "id": "R103",
+      "category": "score_modifier",
+      "subcategory": "special",
+      "name_he": "ניקוד ×(10 - מספר קלפים)",
+      "name_en": "Score ×(10 - card count)",
+      "risk": "medium",
+      "stage_min": 6,
+      "stage_max": 99,
+      "multiplier": 1.3,
+      "description_technical": "multiplier*=(10-hand.size())",
+      "tags": [
+        "special"
+      ]
+    },
+    {
+      "id": "R104",
+      "category": "structure",
+      "subcategory": "draw",
+      "name_he": "מקבלים 7 קלפים ובוחרים 5",
+      "name_en": "Draw 7 choose 5",
+      "risk": "low",
+      "stage_min": 1,
+      "stage_max": 99,
+      "multiplier": 1.1,
+      "description_technical": "drawSize=7,playSize=5",
+      "tags": [
+        "draw"
+      ]
+    },
+    {
+      "id": "R105",
+      "category": "structure",
+      "subcategory": "draw",
+      "name_he": "מקבלים 8 קלפים ובוחרים 5",
+      "name_en": "Draw 8 choose 5",
+      "risk": "low",
+      "stage_min": 3,
+      "stage_max": 99,
+      "multiplier": 1.15,
+      "description_technical": "drawSize=8,playSize=5",
+      "tags": [
+        "draw"
+      ]
+    },
+    {
+      "id": "R106",
+      "category": "structure",
+      "subcategory": "draw",
+      "name_he": "מקבלים 10 קלפים ובוחרים 5",
+      "name_en": "Draw 10 choose 5",
+      "risk": "medium",
+      "stage_min": 6,
+      "stage_max": 99,
+      "multiplier": 1.25,
+      "description_technical": "drawSize=10,playSize=5",
+      "tags": [
+        "draw"
+      ]
+    },
+    {
+      "id": "R107",
+      "category": "structure",
+      "subcategory": "draw",
+      "name_he": "מקבלים 6 קלפים ובוחרים 4",
+      "name_en": "Draw 6 choose 4",
+      "risk": "medium",
+      "stage_min": 5,
+      "stage_max": 99,
+      "multiplier": 1.2,
+      "description_technical": "drawSize=6,playSize=4",
+      "tags": [
+        "draw"
+      ]
+    },
+    {
+      "id": "R108",
+      "category": "structure",
+      "subcategory": "draw",
+      "name_he": "מקבלים 4 קלפים בלבד",
+      "name_en": "Draw exactly 4",
+      "risk": "medium",
+      "stage_min": 7,
+      "stage_max": 99,
+      "multiplier": 1.35,
+      "description_technical": "drawSize=4,playSize=4",
+      "tags": [
+        "draw"
+      ]
+    },
+    {
+      "id": "R109",
+      "category": "structure",
+      "subcategory": "discard",
+      "name_he": "3 החלפות",
+      "name_en": "3 discards allowed",
+      "risk": "low",
+      "stage_min": 1,
+      "stage_max": 99,
+      "multiplier": 1.1,
+      "description_technical": "maxDiscards=3",
+      "tags": [
+        "discard"
+      ]
+    },
+    {
+      "id": "R110",
+      "category": "structure",
+      "subcategory": "discard",
+      "name_he": "4 החלפות",
+      "name_en": "4 discards allowed",
+      "risk": "low",
+      "stage_min": 3,
+      "stage_max": 99,
+      "multiplier": 1.15,
+      "description_technical": "maxDiscards=4",
+      "tags": [
+        "discard"
+      ]
+    },
+    {
+      "id": "R111",
+      "category": "structure",
+      "subcategory": "discard",
+      "name_he": "5 החלפות",
+      "name_en": "5 discards allowed",
+      "risk": "medium",
+      "stage_min": 5,
+      "stage_max": 99,
+      "multiplier": 1.2,
+      "description_technical": "maxDiscards=5",
+      "tags": [
+        "discard"
+      ]
+    },
+    {
+      "id": "R112",
+      "category": "structure",
+      "subcategory": "discard",
+      "name_he": "אין החלפות בכלל",
+      "name_en": "No discards",
+      "risk": "high",
+      "stage_min": 10,
+      "stage_max": 99,
+      "multiplier": 1.7,
+      "description_technical": "maxDiscards=0",
+      "tags": [
+        "discard"
+      ]
+    },
+    {
+      "id": "R113",
+      "category": "structure",
+      "subcategory": "discard",
+      "name_he": "החלפה אחת בלבד",
+      "name_en": "Only 1 discard",
+      "risk": "medium",
+      "stage_min": 6,
+      "stage_max": 99,
+      "multiplier": 1.35,
+      "description_technical": "maxDiscards=1",
+      "tags": [
+        "discard"
+      ]
+    },
+    {
+      "id": "R114",
+      "category": "structure",
+      "subcategory": "discard",
+      "name_he": "מחליפים בדיוק 2",
+      "name_en": "Must discard exactly 2",
+      "risk": "medium",
+      "stage_min": 5,
+      "stage_max": 99,
+      "multiplier": 1.25,
+      "description_technical": "mustDiscard=2",
+      "tags": [
+        "discard"
+      ]
+    },
+    {
+      "id": "R115",
+      "category": "structure",
+      "subcategory": "discard",
+      "name_he": "חובה להחליף לפחות 1",
+      "name_en": "Must discard at least 1",
+      "risk": "low",
+      "stage_min": 3,
+      "stage_max": 99,
+      "multiplier": 1.1,
+      "description_technical": "minDiscard=1",
+      "tags": [
+        "discard"
+      ]
+    },
+    {
+      "id": "R116",
+      "category": "structure",
+      "subcategory": "hands",
+      "name_he": "4 ידיים לכל שלב",
+      "name_en": "4 hands per round",
+      "risk": "low",
+      "stage_min": 1,
+      "stage_max": 99,
+      "multiplier": 1.1,
+      "description_technical": "handsPerRound=4",
+      "tags": [
+        "hands"
+      ]
+    },
+    {
+      "id": "R117",
+      "category": "structure",
+      "subcategory": "hands",
+      "name_he": "5 ידיים לכל שלב",
+      "name_en": "5 hands per round",
+      "risk": "low",
+      "stage_min": 4,
+      "stage_max": 99,
+      "multiplier": 1.15,
+      "description_technical": "handsPerRound=5",
+      "tags": [
+        "hands"
+      ]
+    },
+    {
+      "id": "R118",
+      "category": "structure",
+      "subcategory": "hands",
+      "name_he": "יד אחת בלבד",
+      "name_en": "Single hand only",
+      "risk": "high",
+      "stage_min": 12,
+      "stage_max": 99,
+      "multiplier": 1.8,
+      "description_technical": "handsPerRound=1",
+      "tags": [
+        "hands"
+      ]
+    },
+    {
+      "id": "R119",
+      "category": "structure",
+      "subcategory": "hands",
+      "name_he": "2 ידיים בלבד",
+      "name_en": "2 hands only",
+      "risk": "medium",
+      "stage_min": 8,
+      "stage_max": 99,
+      "multiplier": 1.4,
+      "description_technical": "handsPerRound=2",
+      "tags": [
+        "hands"
+      ]
+    },
+    {
+      "id": "R120",
+      "category": "structure",
+      "subcategory": "carry",
+      "name_he": "שמור 2 קלפים מהיד הקודמת",
+      "name_en": "Keep 2 cards from last hand",
+      "risk": "medium",
+      "stage_min": 5,
+      "stage_max": 99,
+      "multiplier": 1.2,
+      "description_technical": "carryOver=2",
+      "tags": [
+        "carry"
+      ]
+    },
+    {
+      "id": "R121",
+      "category": "structure",
+      "subcategory": "carry",
+      "name_he": "שמור קלף אחד",
+      "name_en": "Keep 1 card from last hand",
+      "risk": "low",
+      "stage_min": 3,
+      "stage_max": 99,
+      "multiplier": 1.1,
+      "description_technical": "carryOver=1",
+      "tags": [
+        "carry"
+      ]
+    },
+    {
+      "id": "R122",
+      "category": "structure",
+      "subcategory": "carry",
+      "name_he": "כל הקלפים חדשים כל פעם",
+      "name_en": "All new cards each hand",
+      "risk": "low",
+      "stage_min": 1,
+      "stage_max": 99,
+      "multiplier": 1.0,
+      "description_technical": "carryOver=0",
+      "tags": [
+        "carry"
+      ]
+    },
+    {
+      "id": "R123",
+      "category": "structure",
+      "subcategory": "special",
+      "name_he": "בחירה עיוורת - לא רואים 2 קלפים",
+      "name_en": "Blind: 2 cards face down",
+      "risk": "medium",
+      "stage_min": 7,
+      "stage_max": 99,
+      "multiplier": 1.4,
+      "description_technical": "blindCards=2",
+      "tags": [
+        "special"
+      ]
+    },
+    {
+      "id": "R124",
+      "category": "structure",
+      "subcategory": "special",
+      "name_he": "בחירה עיוורת - קלף אחד",
+      "name_en": "Blind: 1 card face down",
+      "risk": "low",
+      "stage_min": 4,
+      "stage_max": 99,
+      "multiplier": 1.2,
+      "description_technical": "blindCards=1",
+      "tags": [
+        "special"
+      ]
+    },
+    {
+      "id": "R125",
+      "category": "structure",
+      "subcategory": "special",
+      "name_he": "יד מראה - רואים את הקלפים הבאים",
+      "name_en": "Mirror: see next draw",
+      "risk": "low",
+      "stage_min": 3,
+      "stage_max": 99,
+      "multiplier": 1.1,
+      "description_technical": "seeNextDraw=true",
+      "tags": [
+        "special"
+      ]
+    },
+    {
+      "id": "R126",
+      "category": "structure",
+      "subcategory": "special",
+      "name_he": "ניתן לשחק 2 ידיים במקביל",
+      "name_en": "Play 2 hands simultaneously",
+      "risk": "medium",
+      "stage_min": 8,
+      "stage_max": 99,
+      "multiplier": 1.35,
+      "description_technical": "simultaneousHands=2",
+      "tags": [
+        "special"
+      ]
+    },
+    {
+      "id": "R127",
+      "category": "structure",
+      "subcategory": "special",
+      "name_he": "מגבלת זמן - 15 שניות ליד",
+      "name_en": "15 second time limit",
+      "risk": "medium",
+      "stage_min": 6,
+      "stage_max": 99,
+      "multiplier": 1.3,
+      "description_technical": "timeLimit=15",
+      "tags": [
+        "special"
+      ]
+    },
+    {
+      "id": "R128",
+      "category": "structure",
+      "subcategory": "special",
+      "name_he": "מגבלת זמן - 10 שניות",
+      "name_en": "10 second time limit",
+      "risk": "high",
+      "stage_min": 10,
+      "stage_max": 99,
+      "multiplier": 1.5,
+      "description_technical": "timeLimit=10",
+      "tags": [
+        "special"
+      ]
+    },
+    {
+      "id": "R129",
+      "category": "structure",
+      "subcategory": "reroll",
+      "name_he": "2 גלגולים מחדש של חוקים",
+      "name_en": "2 rule rerolls",
+      "risk": "low",
+      "stage_min": 1,
+      "stage_max": 99,
+      "multiplier": 1.05,
+      "description_technical": "ruleRerolls=2",
+      "tags": [
+        "reroll"
+      ]
+    },
+    {
+      "id": "R130",
+      "category": "structure",
+      "subcategory": "reroll",
+      "name_he": "3 גלגולים",
+      "name_en": "3 rule rerolls",
+      "risk": "low",
+      "stage_min": 3,
+      "stage_max": 99,
+      "multiplier": 1.1,
+      "description_technical": "ruleRerolls=3",
+      "tags": [
+        "reroll"
+      ]
+    },
+    {
+      "id": "R131",
+      "category": "structure",
+      "subcategory": "reroll",
+      "name_he": "אין גלגולים",
+      "name_en": "No rule rerolls",
+      "risk": "medium",
+      "stage_min": 7,
+      "stage_max": 99,
+      "multiplier": 1.3,
+      "description_technical": "ruleRerolls=0",
+      "tags": [
+        "reroll"
+      ]
+    },
+    {
+      "id": "R132",
+      "category": "structure",
+      "subcategory": "reroll",
+      "name_he": "גלגול עולה 50 נקודות",
+      "name_en": "Reroll costs 50 points",
+      "risk": "medium",
+      "stage_min": 5,
+      "stage_max": 99,
+      "multiplier": 1.2,
+      "description_technical": "rerollCost=50",
+      "tags": [
+        "reroll"
+      ]
+    },
+    {
+      "id": "R133",
+      "category": "deck_mutation",
+      "subcategory": "add_value",
+      "name_he": "הוסף קלפי 11",
+      "name_en": "Add value-11 cards (4 cards)",
+      "risk": "medium",
+      "stage_min": 5,
+      "stage_max": 99,
+      "multiplier": 1.2,
+      "description_technical": "deck.addValue(11)",
+      "tags": [
+        "add",
+        "value"
+      ]
+    },
+    {
+      "id": "R134",
+      "category": "deck_mutation",
+      "subcategory": "add_value",
+      "name_he": "הוסף קלפי 12",
+      "name_en": "Add value-12 cards",
+      "risk": "medium",
+      "stage_min": 5,
+      "stage_max": 99,
+      "multiplier": 1.2,
+      "description_technical": "deck.addValue(12)",
+      "tags": [
+        "add",
+        "value"
+      ]
+    },
+    {
+      "id": "R135",
+      "category": "deck_mutation",
+      "subcategory": "add_value",
+      "name_he": "הוסף קלפי 13",
+      "name_en": "Add value-13 (extra kings)",
+      "risk": "medium",
+      "stage_min": 6,
+      "stage_max": 99,
+      "multiplier": 1.25,
+      "description_technical": "deck.addExtraValue(13)",
+      "tags": [
+        "add",
+        "value"
+      ]
+    },
+    {
+      "id": "R136",
+      "category": "deck_mutation",
+      "subcategory": "add_value",
+      "name_he": "הוסף קלפי 14",
+      "name_en": "Add value-14 cards",
+      "risk": "medium",
+      "stage_min": 7,
+      "stage_max": 99,
+      "multiplier": 1.3,
+      "description_technical": "deck.addValue(14)",
+      "tags": [
+        "add",
+        "value"
+      ]
+    },
+    {
+      "id": "R137",
+      "category": "deck_mutation",
+      "subcategory": "add_value",
+      "name_he": "הוסף קלפי 15",
+      "name_en": "Add value-15 cards",
+      "risk": "medium",
+      "stage_min": 8,
+      "stage_max": 99,
+      "multiplier": 1.35,
+      "description_technical": "deck.addValue(15)",
+      "tags": [
+        "add",
+        "value"
+      ]
+    },
+    {
+      "id": "R138",
+      "category": "deck_mutation",
+      "subcategory": "add_value",
+      "name_he": "הוסף קלפי 0",
+      "name_en": "Add zero-value cards",
+      "risk": "medium",
+      "stage_min": 6,
+      "stage_max": 99,
+      "multiplier": 1.25,
+      "description_technical": "deck.addValue(0)",
+      "tags": [
+        "add",
+        "value"
+      ]
+    },
+    {
+      "id": "R139",
+      "category": "deck_mutation",
+      "subcategory": "add_value",
+      "name_he": "הוסף קלפי -1",
+      "name_en": "Add negative-value cards",
+      "risk": "high",
+      "stage_min": 10,
+      "stage_max": 99,
+      "multiplier": 1.5,
+      "description_technical": "deck.addValue(-1)",
+      "tags": [
+        "add",
+        "value"
+      ]
+    },
+    {
+      "id": "R140",
+      "category": "deck_mutation",
+      "subcategory": "add_suit",
+      "name_he": "הוסף צבע חמישי: כוכבים",
+      "name_en": "Add 5th suit: Stars",
+      "risk": "medium",
+      "stage_min": 8,
+      "stage_max": 99,
+      "multiplier": 1.4,
+      "description_technical": "deck.addSuit('stars',13)",
+      "tags": [
+        "add",
+        "suit"
+      ]
+    },
+    {
+      "id": "R141",
+      "category": "deck_mutation",
+      "subcategory": "add_suit",
+      "name_he": "הוסף צבע שישי: ירחים",
+      "name_en": "Add 6th suit: Moons",
+      "risk": "high",
+      "stage_min": 12,
+      "stage_max": 99,
+      "multiplier": 1.6,
+      "description_technical": "deck.addSuit('moons',13)",
+      "tags": [
+        "add",
+        "suit"
+      ]
+    },
+    {
+      "id": "R142",
+      "category": "deck_mutation",
+      "subcategory": "add_suit",
+      "name_he": "הוסף 4 ג'וקרים",
+      "name_en": "Add 4 jokers",
+      "risk": "medium",
+      "stage_min": 5,
+      "stage_max": 99,
+      "multiplier": 1.3,
+      "description_technical": "deck.addJokers(4)",
+      "tags": [
+        "add",
+        "wild"
+      ]
+    },
+    {
+      "id": "R143",
+      "category": "deck_mutation",
+      "subcategory": "add_suit",
+      "name_he": "הוסף 2 ג'וקרים",
+      "name_en": "Add 2 jokers",
+      "risk": "low",
+      "stage_min": 3,
+      "stage_max": 99,
+      "multiplier": 1.15,
+      "description_technical": "deck.addJokers(2)",
+      "tags": [
+        "add",
+        "wild"
+      ]
+    },
+    {
+      "id": "R144",
+      "category": "deck_mutation",
+      "subcategory": "add_suit",
+      "name_he": "הוסף 8 ג'וקרים",
+      "name_en": "Add 8 jokers",
+      "risk": "high",
+      "stage_min": 10,
+      "stage_max": 99,
+      "multiplier": 1.5,
+      "description_technical": "deck.addJokers(8)",
+      "tags": [
+        "add",
+        "wild"
+      ]
+    },
+    {
+      "id": "R145",
+      "category": "deck_mutation",
+      "subcategory": "add_special",
+      "name_he": "הוסף 4 קלפי Wild",
+      "name_en": "Add 4 wild cards",
+      "risk": "medium",
+      "stage_min": 6,
+      "stage_max": 99,
+      "multiplier": 1.3,
+      "description_technical": "deck.addWilds(4)",
+      "tags": [
+        "add",
+        "wild"
+      ]
+    },
+    {
+      "id": "R146",
+      "category": "deck_mutation",
+      "subcategory": "add_special",
+      "name_he": "הוסף קלפים דו-צבעיים",
+      "name_en": "Add dual-suit cards",
+      "risk": "medium",
+      "stage_min": 8,
+      "stage_max": 99,
+      "multiplier": 1.35,
+      "description_technical": "deck.addDualSuit(8)",
+      "tags": [
+        "add",
+        "special"
+      ]
+    },
+    {
+      "id": "R147",
+      "category": "deck_mutation",
+      "subcategory": "add_special",
+      "name_he": "שכפל את הקלף הגבוה ×3",
+      "name_en": "Triple the highest card",
+      "risk": "medium",
+      "stage_min": 6,
+      "stage_max": 99,
+      "multiplier": 1.25,
+      "description_technical": "deck.tripleHighest()",
+      "tags": [
+        "add",
+        "special"
+      ]
+    },
+    {
+      "id": "R148",
+      "category": "deck_mutation",
+      "subcategory": "add_special",
+      "name_he": "שכפל את כל האסים",
+      "name_en": "Double all aces",
+      "risk": "medium",
+      "stage_min": 5,
+      "stage_max": 99,
+      "multiplier": 1.2,
+      "description_technical": "deck.doubleValue(14)",
+      "tags": [
+        "add",
+        "value"
+      ]
+    },
+    {
+      "id": "R149",
+      "category": "deck_mutation",
+      "subcategory": "add_special",
+      "name_he": "הוסף חפיסה שנייה",
+      "name_en": "Double deck (104 cards)",
+      "risk": "medium",
+      "stage_min": 7,
+      "stage_max": 99,
+      "multiplier": 1.3,
+      "description_technical": "deck.double()",
+      "tags": [
+        "add",
+        "special"
+      ]
+    },
+    {
+      "id": "R150",
+      "category": "deck_mutation",
+      "subcategory": "add_special",
+      "name_he": "הוסף 4 קלפי בונוס (50 נקודות כל אחד)",
+      "name_en": "Add 4 bonus cards (50pts)",
+      "risk": "low",
+      "stage_min": 4,
+      "stage_max": 99,
+      "multiplier": 1.15,
+      "description_technical": "deck.addBonus(4,50)",
+      "tags": [
+        "add",
+        "bonus"
+      ]
+    },
+    {
+      "id": "R151",
+      "category": "deck_mutation",
+      "subcategory": "remove_value",
+      "name_he": "הסר את כל ה-2",
+      "name_en": "Remove all 2s",
+      "risk": "medium",
+      "stage_min": 4,
+      "stage_max": 99,
+      "multiplier": 1.2,
+      "description_technical": "deck.removeValue(2)",
+      "tags": [
+        "remove",
+        "value"
+      ]
+    },
+    {
+      "id": "R152",
+      "category": "deck_mutation",
+      "subcategory": "remove_value",
+      "name_he": "הסר 2 ו-3",
+      "name_en": "Remove 2s and 3s",
+      "risk": "medium",
+      "stage_min": 5,
+      "stage_max": 99,
+      "multiplier": 1.3,
+      "description_technical": "deck.removeValues([2,3])",
+      "tags": [
+        "remove",
+        "value"
+      ]
+    },
+    {
+      "id": "R153",
+      "category": "deck_mutation",
+      "subcategory": "remove_value",
+      "name_he": "הסר 2, 3, 4",
+      "name_en": "Remove 2s, 3s, 4s",
+      "risk": "high",
+      "stage_min": 8,
+      "stage_max": 99,
+      "multiplier": 1.5,
+      "description_technical": "deck.removeValues([2,3,4])",
+      "tags": [
+        "remove",
+        "value"
+      ]
+    },
+    {
+      "id": "R154",
+      "category": "deck_mutation",
+      "subcategory": "remove_value",
+      "name_he": "הסר את כל ה-10",
+      "name_en": "Remove all 10s",
+      "risk": "medium",
+      "stage_min": 5,
+      "stage_max": 99,
+      "multiplier": 1.25,
+      "description_technical": "deck.removeValue(10)",
+      "tags": [
+        "remove",
+        "value"
+      ]
+    },
+    {
+      "id": "R155",
+      "category": "deck_mutation",
+      "subcategory": "remove_value",
+      "name_he": "הסר את כל הפרצופים",
+      "name_en": "Remove all face cards",
+      "risk": "high",
+      "stage_min": 10,
+      "stage_max": 99,
+      "multiplier": 1.6,
+      "description_technical": "deck.removeValues([11,12,13])",
+      "tags": [
+        "remove",
+        "value"
+      ]
+    },
+    {
+      "id": "R156",
+      "category": "deck_mutation",
+      "subcategory": "remove_value",
+      "name_he": "הסר את כל האסים",
+      "name_en": "Remove all aces",
+      "risk": "high",
+      "stage_min": 8,
+      "stage_max": 99,
+      "multiplier": 1.5,
+      "description_technical": "deck.removeValue(14)",
+      "tags": [
+        "remove",
+        "value"
+      ]
+    },
+    {
+      "id": "R157",
+      "category": "deck_mutation",
+      "subcategory": "remove_value",
+      "name_he": "הסר ערכים זוגיים",
+      "name_en": "Remove even values",
+      "risk": "high",
+      "stage_min": 10,
+      "stage_max": 99,
+      "multiplier": 1.7,
+      "description_technical": "deck.removeWhere(c=>c.value%2==0)",
+      "tags": [
+        "remove",
+        "value"
+      ]
+    },
+    {
+      "id": "R158",
+      "category": "deck_mutation",
+      "subcategory": "remove_value",
+      "name_he": "הסר ערכים אי-זוגיים",
+      "name_en": "Remove odd values",
+      "risk": "high",
+      "stage_min": 10,
+      "stage_max": 99,
+      "multiplier": 1.7,
+      "description_technical": "deck.removeWhere(c=>c.value%2==1)",
+      "tags": [
+        "remove",
+        "value"
+      ]
+    },
+    {
+      "id": "R159",
+      "category": "deck_mutation",
+      "subcategory": "remove_value",
+      "name_he": "הסר מספרים ראשוניים",
+      "name_en": "Remove prime values",
+      "risk": "high",
+      "stage_min": 10,
+      "stage_max": 99,
+      "multiplier": 1.6,
+      "description_technical": "deck.removeWhere(c=>[2,3,5,7,11,13].includes(c.value))",
+      "tags": [
+        "remove",
+        "value"
+      ]
+    },
+    {
+      "id": "R160",
+      "category": "deck_mutation",
+      "subcategory": "remove_suit",
+      "name_he": "הסר את כל הלבבות",
+      "name_en": "Remove all hearts",
+      "risk": "high",
+      "stage_min": 8,
+      "stage_max": 99,
+      "multiplier": 1.5,
+      "description_technical": "deck.removeSuit('hearts')",
+      "tags": [
+        "remove",
+        "suit"
+      ]
+    },
+    {
+      "id": "R161",
+      "category": "deck_mutation",
+      "subcategory": "remove_suit",
+      "name_he": "הסר את כל העלים",
+      "name_en": "Remove all spades",
+      "risk": "high",
+      "stage_min": 8,
+      "stage_max": 99,
+      "multiplier": 1.5,
+      "description_technical": "deck.removeSuit('spades')",
+      "tags": [
+        "remove",
+        "suit"
+      ]
+    },
+    {
+      "id": "R162",
+      "category": "deck_mutation",
+      "subcategory": "remove_suit",
+      "name_he": "הסר את כל היהלומים",
+      "name_en": "Remove all diamonds",
+      "risk": "high",
+      "stage_min": 8,
+      "stage_max": 99,
+      "multiplier": 1.5,
+      "description_technical": "deck.removeSuit('diamonds')",
+      "tags": [
+        "remove",
+        "suit"
+      ]
+    },
+    {
+      "id": "R163",
+      "category": "deck_mutation",
+      "subcategory": "remove_suit",
+      "name_he": "הסר את כל התלתנים",
+      "name_en": "Remove all clubs",
+      "risk": "high",
+      "stage_min": 8,
+      "stage_max": 99,
+      "multiplier": 1.5,
+      "description_technical": "deck.removeSuit('clubs')",
+      "tags": [
+        "remove",
+        "suit"
+      ]
+    },
+    {
+      "id": "R164",
+      "category": "deck_mutation",
+      "subcategory": "remove_suit",
+      "name_he": "הסר סוג רנדומלי",
+      "name_en": "Remove random suit",
+      "risk": "high",
+      "stage_min": 9,
+      "stage_max": 99,
+      "multiplier": 1.55,
+      "description_technical": "deck.removeSuit(random)",
+      "tags": [
+        "remove",
+        "suit"
+      ]
+    },
+    {
+      "id": "R165",
+      "category": "deck_mutation",
+      "subcategory": "remove_special",
+      "name_he": "חפיסה מתכווצת: -4 קלפים כל סיבוב",
+      "name_en": "Shrinking deck: -4/round",
+      "risk": "high",
+      "stage_min": 10,
+      "stage_max": 99,
+      "multiplier": 1.6,
+      "description_technical": "deck.shrinkPerRound=4",
+      "tags": [
+        "remove",
+        "dynamic"
+      ]
+    },
+    {
+      "id": "R166",
+      "category": "deck_mutation",
+      "subcategory": "remove_special",
+      "name_he": "חפיסה מתכווצת: -2 כל סיבוב",
+      "name_en": "Shrinking deck: -2/round",
+      "risk": "medium",
+      "stage_min": 7,
+      "stage_max": 99,
+      "multiplier": 1.35,
+      "description_technical": "deck.shrinkPerRound=2",
+      "tags": [
+        "remove",
+        "dynamic"
+      ]
+    },
+    {
+      "id": "R167",
+      "category": "deck_mutation",
+      "subcategory": "remove_special",
+      "name_he": "הסר את הקלפים שנשחקו ביד האחרונה",
+      "name_en": "Remove last played hand",
+      "risk": "high",
+      "stage_min": 10,
+      "stage_max": 99,
+      "multiplier": 1.6,
+      "description_technical": "deck.removeLastPlayed()",
+      "tags": [
+        "remove",
+        "dynamic"
+      ]
+    },
+    {
+      "id": "R168",
+      "category": "deck_mutation",
+      "subcategory": "remove_special",
+      "name_he": "הסר 8 קלפים רנדומליים",
+      "name_en": "Remove 8 random cards",
+      "risk": "high",
+      "stage_min": 9,
+      "stage_max": 99,
+      "multiplier": 1.5,
+      "description_technical": "deck.removeRandom(8)",
+      "tags": [
+        "remove",
+        "random"
+      ]
+    },
+    {
+      "id": "R169",
+      "category": "deck_mutation",
+      "subcategory": "remove_special",
+      "name_he": "הסר 4 קלפים רנדומליים",
+      "name_en": "Remove 4 random cards",
+      "risk": "medium",
+      "stage_min": 6,
+      "stage_max": 99,
+      "multiplier": 1.3,
+      "description_technical": "deck.removeRandom(4)",
+      "tags": [
+        "remove",
+        "random"
+      ]
+    },
+    {
+      "id": "R170",
+      "category": "deck_mutation",
+      "subcategory": "transform",
+      "name_he": "מלכים הופכים ל-0",
+      "name_en": "Kings become 0",
+      "risk": "medium",
+      "stage_min": 5,
+      "stage_max": 99,
+      "multiplier": 1.25,
+      "description_technical": "deck.transform(13,0)",
+      "tags": [
+        "transform",
+        "value"
+      ]
+    },
+    {
+      "id": "R171",
+      "category": "deck_mutation",
+      "subcategory": "transform",
+      "name_he": "אסים הופכים ל-1",
+      "name_en": "Aces become 1",
+      "risk": "low",
+      "stage_min": 3,
+      "stage_max": 99,
+      "multiplier": 1.1,
+      "description_technical": "deck.transform(14,1)",
+      "tags": [
+        "transform",
+        "value"
+      ]
+    },
+    {
+      "id": "R172",
+      "category": "deck_mutation",
+      "subcategory": "transform",
+      "name_he": "מלכות הופכות ל-10",
+      "name_en": "Queens become 10",
+      "risk": "low",
+      "stage_min": 3,
+      "stage_max": 99,
+      "multiplier": 1.1,
+      "description_technical": "deck.transform(12,10)",
+      "tags": [
+        "transform",
+        "value"
+      ]
+    },
+    {
+      "id": "R173",
+      "category": "deck_mutation",
+      "subcategory": "transform",
+      "name_he": "כל 5 הופך ל-10",
+      "name_en": "All 5s become 10",
+      "risk": "low",
+      "stage_min": 3,
+      "stage_max": 99,
+      "multiplier": 1.1,
+      "description_technical": "deck.transform(5,10)",
+      "tags": [
+        "transform",
+        "value"
+      ]
+    },
+    {
+      "id": "R174",
+      "category": "deck_mutation",
+      "subcategory": "transform",
+      "name_he": "לבבות ויהלומים מתחלפים",
+      "name_en": "Hearts and diamonds swap",
+      "risk": "medium",
+      "stage_min": 5,
+      "stage_max": 99,
+      "multiplier": 1.2,
+      "description_technical": "deck.swapSuits('hearts','diamonds')",
+      "tags": [
+        "transform",
+        "suit"
+      ]
+    },
+    {
+      "id": "R175",
+      "category": "deck_mutation",
+      "subcategory": "transform",
+      "name_he": "עלים ותלתנים מתחלפים",
+      "name_en": "Spades and clubs swap",
+      "risk": "medium",
+      "stage_min": 5,
+      "stage_max": 99,
+      "multiplier": 1.2,
+      "description_technical": "deck.swapSuits('spades','clubs')",
+      "tags": [
+        "transform",
+        "suit"
+      ]
+    },
+    {
+      "id": "R176",
+      "category": "deck_mutation",
+      "subcategory": "transform",
+      "name_he": "כל הקלפים האדומים הופכים לשחורים",
+      "name_en": "Red becomes black",
+      "risk": "high",
+      "stage_min": 10,
+      "stage_max": 99,
+      "multiplier": 1.6,
+      "description_technical": "deck.recolor('red','black')",
+      "tags": [
+        "transform",
+        "color"
+      ]
+    },
+    {
+      "id": "R177",
+      "category": "deck_mutation",
+      "subcategory": "transform",
+      "name_he": "כל הקלפים השחורים הופכים לאדומים",
+      "name_en": "Black becomes red",
+      "risk": "high",
+      "stage_min": 10,
+      "stage_max": 99,
+      "multiplier": 1.6,
+      "description_technical": "deck.recolor('black','red')",
+      "tags": [
+        "transform",
+        "color"
+      ]
+    },
+    {
+      "id": "R178",
+      "category": "deck_mutation",
+      "subcategory": "transform",
+      "name_he": "ערכים מתהפכים: 2↔A, 3↔K, 4↔Q...",
+      "name_en": "Values invert (2↔A,3↔K...)",
+      "risk": "medium",
+      "stage_min": 7,
+      "stage_max": 99,
+      "multiplier": 1.35,
+      "description_technical": "deck.invertValues()",
+      "tags": [
+        "transform",
+        "value"
+      ]
+    },
+    {
+      "id": "R179",
+      "category": "deck_mutation",
+      "subcategory": "transform",
+      "name_he": "כל הערכים +1",
+      "name_en": "All values +1",
+      "risk": "low",
+      "stage_min": 3,
+      "stage_max": 99,
+      "multiplier": 1.1,
+      "description_technical": "deck.shiftValues(1)",
+      "tags": [
+        "transform",
+        "value"
+      ]
+    },
+    {
+      "id": "R180",
+      "category": "deck_mutation",
+      "subcategory": "transform",
+      "name_he": "כל הערכים -1",
+      "name_en": "All values -1",
+      "risk": "medium",
+      "stage_min": 5,
+      "stage_max": 99,
+      "multiplier": 1.2,
+      "description_technical": "deck.shiftValues(-1)",
+      "tags": [
+        "transform",
+        "value"
+      ]
+    },
+    {
+      "id": "R181",
+      "category": "deck_mutation",
+      "subcategory": "transform",
+      "name_he": "כל הערכים ×2",
+      "name_en": "All values doubled",
+      "risk": "medium",
+      "stage_min": 6,
+      "stage_max": 99,
+      "multiplier": 1.3,
+      "description_technical": "deck.scaleValues(2)",
+      "tags": [
+        "transform",
+        "value"
+      ]
+    },
+    {
+      "id": "R182",
+      "category": "deck_mutation",
+      "subcategory": "transform",
+      "name_he": "כל הערכים mod 5",
+      "name_en": "All values mod 5",
+      "risk": "high",
+      "stage_min": 10,
+      "stage_max": 99,
+      "multiplier": 1.5,
+      "description_technical": "deck.modValues(5)",
+      "tags": [
+        "transform",
+        "value"
+      ]
+    },
+    {
+      "id": "R183",
+      "category": "deck_mutation",
+      "subcategory": "transform",
+      "name_he": "ערכים רנדומליים לכל הקלפים",
+      "name_en": "Randomize all values",
+      "risk": "high",
+      "stage_min": 12,
+      "stage_max": 99,
+      "multiplier": 1.7,
+      "description_technical": "deck.randomizeValues()",
+      "tags": [
+        "transform",
+        "chaos"
+      ]
+    },
+    {
+      "id": "R184",
+      "category": "deck_mutation",
+      "subcategory": "property",
+      "name_he": "חפיסה כפולה",
+      "name_en": "Double deck (104 cards)",
+      "risk": "low",
+      "stage_min": 4,
+      "stage_max": 99,
+      "multiplier": 1.1,
+      "description_technical": "deck.copies=2",
+      "tags": [
+        "property"
+      ]
+    },
+    {
+      "id": "R185",
+      "category": "deck_mutation",
+      "subcategory": "property",
+      "name_he": "חפיסה משולשת",
+      "name_en": "Triple deck (156 cards)",
+      "risk": "medium",
+      "stage_min": 7,
+      "stage_max": 99,
+      "multiplier": 1.25,
+      "description_technical": "deck.copies=3",
+      "tags": [
+        "property"
+      ]
+    },
+    {
+      "id": "R186",
+      "category": "deck_mutation",
+      "subcategory": "property",
+      "name_he": "אין ערבוב - סדר קבוע",
+      "name_en": "No shuffle - fixed order",
+      "risk": "high",
+      "stage_min": 10,
+      "stage_max": 99,
+      "multiplier": 1.6,
+      "description_technical": "deck.shuffle=false",
+      "tags": [
+        "property"
+      ]
+    },
+    {
+      "id": "R187",
+      "category": "deck_mutation",
+      "subcategory": "property",
+      "name_he": "ערבוב הפוך - מהגבוה לנמוך",
+      "name_en": "Reverse sort - high to low",
+      "risk": "medium",
+      "stage_min": 6,
+      "stage_max": 99,
+      "multiplier": 1.3,
+      "description_technical": "deck.sort='desc'",
+      "tags": [
+        "property"
+      ]
+    },
+    {
+      "id": "R188",
+      "category": "deck_mutation",
+      "subcategory": "property",
+      "name_he": "חצי חפיסה בלבד (26 קלפים)",
+      "name_en": "Half deck only (26 cards)",
+      "risk": "high",
+      "stage_min": 10,
+      "stage_max": 99,
+      "multiplier": 1.6,
+      "description_technical": "deck.limit=26",
+      "tags": [
+        "property"
+      ]
+    },
+    {
+      "id": "R189",
+      "category": "deck_mutation",
+      "subcategory": "property",
+      "name_he": "חפיסה מינימלית (20 קלפים)",
+      "name_en": "Mini deck (20 cards)",
+      "risk": "high",
+      "stage_min": 14,
+      "stage_max": 99,
+      "multiplier": 1.8,
+      "description_technical": "deck.limit=20",
+      "tags": [
+        "property"
+      ]
+    },
+    {
+      "id": "R190",
+      "category": "chaos",
+      "subcategory": "hand_swap",
+      "name_he": "ידיים מתחלפות: זוג > שלישייה",
+      "name_en": "Pair outranks three of a kind",
+      "risk": "medium",
+      "stage_min": 6,
+      "stage_max": 99,
+      "multiplier": 1.3,
+      "description_technical": "ranking.swap('pair','three')",
+      "tags": [
+        "rank"
+      ]
+    },
+    {
+      "id": "R191",
+      "category": "chaos",
+      "subcategory": "hand_swap",
+      "name_he": "פלאש חלש מסטרייט",
+      "name_en": "Flush ranks below straight",
+      "risk": "low",
+      "stage_min": 4,
+      "stage_max": 99,
+      "multiplier": 1.15,
+      "description_technical": "ranking.swap('flush','straight')",
+      "tags": [
+        "rank"
+      ]
+    },
+    {
+      "id": "R192",
+      "category": "chaos",
+      "subcategory": "hand_swap",
+      "name_he": "High Card הכי חזק",
+      "name_en": "High card is best hand",
+      "risk": "high",
+      "stage_min": 12,
+      "stage_max": 99,
+      "multiplier": 2.0,
+      "description_technical": "ranking.best='highCard'",
+      "tags": [
+        "rank"
+      ]
+    },
+    {
+      "id": "R193",
+      "category": "chaos",
+      "subcategory": "hand_swap",
+      "name_he": "סטרייט פלאש = 0",
+      "name_en": "Straight flush worth 0",
+      "risk": "high",
+      "stage_min": 12,
+      "stage_max": 99,
+      "multiplier": 1.7,
+      "description_technical": "straightFlush.value=0",
+      "tags": [
+        "rank"
+      ]
+    },
+    {
+      "id": "R194",
+      "category": "chaos",
+      "subcategory": "hand_swap",
+      "name_he": "רביעייה חלשה מזוג",
+      "name_en": "Four of a kind below pair",
+      "risk": "high",
+      "stage_min": 14,
+      "stage_max": 99,
+      "multiplier": 1.8,
+      "description_technical": "ranking.swap('four','pair')",
+      "tags": [
+        "rank"
+      ]
+    },
+    {
+      "id": "R195",
+      "category": "chaos",
+      "subcategory": "redefine",
+      "name_he": "סטרייט = 3 רצופים (לא 5)",
+      "name_en": "Straight = 3 consecutive",
+      "risk": "medium",
+      "stage_min": 5,
+      "stage_max": 99,
+      "multiplier": 1.2,
+      "description_technical": "straight.minRun=3",
+      "tags": [
+        "redefine"
+      ]
+    },
+    {
+      "id": "R196",
+      "category": "chaos",
+      "subcategory": "redefine",
+      "name_he": "פלאש = 3 מאותו סוג (לא 5)",
+      "name_en": "Flush = 3 of same suit",
+      "risk": "medium",
+      "stage_min": 5,
+      "stage_max": 99,
+      "multiplier": 1.2,
+      "description_technical": "flush.minCount=3",
+      "tags": [
+        "redefine"
+      ]
+    },
+    {
+      "id": "R197",
+      "category": "chaos",
+      "subcategory": "redefine",
+      "name_he": "זוג = 3 קלפים זהים",
+      "name_en": "Pair requires 3 matching",
+      "risk": "high",
+      "stage_min": 10,
+      "stage_max": 99,
+      "multiplier": 1.6,
+      "description_technical": "pair.minCount=3",
+      "tags": [
+        "redefine"
+      ]
+    },
+    {
+      "id": "R198",
+      "category": "chaos",
+      "subcategory": "redefine",
+      "name_he": "פול האוס = 4+1",
+      "name_en": "Full house = four + one",
+      "risk": "high",
+      "stage_min": 12,
+      "stage_max": 99,
+      "multiplier": 1.7,
+      "description_technical": "fullHouse.def='4+1'",
+      "tags": [
+        "redefine"
+      ]
+    },
+    {
+      "id": "R199",
+      "category": "chaos",
+      "subcategory": "redefine",
+      "name_he": "סטרייט יכול לעטוף (Q-K-A-2-3)",
+      "name_en": "Wraparound straight allowed",
+      "risk": "low",
+      "stage_min": 3,
+      "stage_max": 99,
+      "multiplier": 1.1,
+      "description_technical": "straight.wrap=true",
+      "tags": [
+        "redefine"
+      ]
+    },
+    {
+      "id": "R200",
+      "category": "chaos",
+      "subcategory": "redefine",
+      "name_he": "פלאש צבעוני: כל הצבעים שונים",
+      "name_en": "Color flush: all different",
+      "risk": "medium",
+      "stage_min": 6,
+      "stage_max": 99,
+      "multiplier": 1.3,
+      "description_technical": "flush.def='allDifferentSuits'",
+      "tags": [
+        "redefine"
+      ]
+    },
+    {
+      "id": "R201",
+      "category": "chaos",
+      "subcategory": "dynamic",
+      "name_he": "חוק מתחלף כל 3 סיבובים",
+      "name_en": "Rule rotates every 3 rounds",
+      "risk": "medium",
+      "stage_min": 7,
+      "stage_max": 99,
+      "multiplier": 1.35,
+      "description_technical": "rule.rotate=3",
+      "tags": [
+        "dynamic"
+      ]
+    },
+    {
+      "id": "R202",
+      "category": "chaos",
+      "subcategory": "dynamic",
+      "name_he": "חוק רנדומלי מתבטל כל סיבוב",
+      "name_en": "Random rule disabled each round",
+      "risk": "medium",
+      "stage_min": 8,
+      "stage_max": 99,
+      "multiplier": 1.4,
+      "description_technical": "rules.disableRandom=1",
+      "tags": [
+        "dynamic"
+      ]
+    },
+    {
+      "id": "R203",
+      "category": "chaos",
+      "subcategory": "dynamic",
+      "name_he": "חוק רנדומלי מתווסף כל סיבוב",
+      "name_en": "Random rule added each round",
+      "risk": "high",
+      "stage_min": 10,
+      "stage_max": 99,
+      "multiplier": 1.6,
+      "description_technical": "rules.addRandom=1",
+      "tags": [
+        "dynamic"
+      ]
+    },
+    {
+      "id": "R204",
+      "category": "chaos",
+      "subcategory": "dynamic",
+      "name_he": "כל 5 סיבובים: כל החוקים מתהפכים",
+      "name_en": "Every 5 rounds: invert rules",
+      "risk": "high",
+      "stage_min": 14,
+      "stage_max": 99,
+      "multiplier": 2.0,
+      "description_technical": "rules.invertEvery=5",
+      "tags": [
+        "dynamic"
+      ]
+    },
+    {
+      "id": "R205",
+      "category": "chaos",
+      "subcategory": "wild",
+      "name_he": "ג'וקר = כל קלף",
+      "name_en": "Joker counts as any card",
+      "risk": "low",
+      "stage_min": 3,
+      "stage_max": 99,
+      "multiplier": 1.1,
+      "description_technical": "joker.wild=true",
+      "tags": [
+        "wild"
+      ]
+    },
+    {
+      "id": "R206",
+      "category": "chaos",
+      "subcategory": "wild",
+      "name_he": "ג'וקר = 0 נקודות",
+      "name_en": "Joker worth 0 points",
+      "risk": "medium",
+      "stage_min": 5,
+      "stage_max": 99,
+      "multiplier": 1.2,
+      "description_technical": "joker.value=0",
+      "tags": [
+        "wild"
+      ]
+    },
+    {
+      "id": "R207",
+      "category": "chaos",
+      "subcategory": "wild",
+      "name_he": "ג'וקר שובר חוק אחד",
+      "name_en": "Joker negates one rule",
+      "risk": "medium",
+      "stage_min": 7,
+      "stage_max": 99,
+      "multiplier": 1.4,
+      "description_technical": "joker.negate=1",
+      "tags": [
+        "wild"
+      ]
+    },
+    {
+      "id": "R208",
+      "category": "chaos",
+      "subcategory": "wild",
+      "name_he": "Wild מתנהג כמו הקלף שלידו",
+      "name_en": "Wild copies adjacent card",
+      "risk": "medium",
+      "stage_min": 6,
+      "stage_max": 99,
+      "multiplier": 1.3,
+      "description_technical": "wild.copyAdjacent=true",
+      "tags": [
+        "wild"
+      ]
+    },
+    {
+      "id": "R209",
+      "category": "chaos",
+      "subcategory": "meta",
+      "name_he": "בחירה מ-4 חוקים (במקום 3)",
+      "name_en": "Choose from 4 rules",
+      "risk": "low",
+      "stage_min": 1,
+      "stage_max": 99,
+      "multiplier": 1.05,
+      "description_technical": "ruleChoices=4",
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "id": "R210",
+      "category": "chaos",
+      "subcategory": "meta",
+      "name_he": "בחירה מ-2 חוקים בלבד",
+      "name_en": "Choose from 2 rules only",
+      "risk": "medium",
+      "stage_min": 6,
+      "stage_max": 99,
+      "multiplier": 1.25,
+      "description_technical": "ruleChoices=2",
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "id": "R211",
+      "category": "chaos",
+      "subcategory": "meta",
+      "name_he": "חובה לבחור 2 חוקים",
+      "name_en": "Must pick 2 rules",
+      "risk": "high",
+      "stage_min": 10,
+      "stage_max": 99,
+      "multiplier": 1.7,
+      "description_technical": "rulesPicked=2",
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "id": "R212",
+      "category": "chaos",
+      "subcategory": "meta",
+      "name_he": "ניתן לדלג על חוק (פעם אחת)",
+      "name_en": "Skip a rule (once)",
+      "risk": "low",
+      "stage_min": 1,
+      "stage_max": 99,
+      "multiplier": 1.0,
+      "description_technical": "skipAvailable=1",
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "id": "R213",
+      "category": "chaos",
+      "subcategory": "meta",
+      "name_he": "ניתן לבטל חוק פעיל",
+      "name_en": "Can remove one active rule",
+      "risk": "medium",
+      "stage_min": 5,
+      "stage_max": 99,
+      "multiplier": 1.2,
+      "description_technical": "removeRuleAvailable=1",
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "id": "R214",
+      "category": "chaos",
+      "subcategory": "meta",
+      "name_he": "החוקים מוצעים הפוכים",
+      "name_en": "Rules offered in reverse risk",
+      "risk": "medium",
+      "stage_min": 6,
+      "stage_max": 99,
+      "multiplier": 1.25,
+      "description_technical": "ruleOfferOrder='reverse'",
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "id": "R215",
+      "category": "chaos",
+      "subcategory": "weird",
+      "name_he": "צבעים מתערבבים כל סיבוב",
+      "name_en": "Suits shuffle each round",
+      "risk": "high",
+      "stage_min": 10,
+      "stage_max": 99,
+      "multiplier": 1.5,
+      "description_technical": "suits.shufflePerRound=true",
+      "tags": [
+        "chaos"
+      ]
+    },
+    {
+      "id": "R216",
+      "category": "chaos",
+      "subcategory": "weird",
+      "name_he": "קלפים שנזרקו חוזרים",
+      "name_en": "Discards return to hand",
+      "risk": "medium",
+      "stage_min": 7,
+      "stage_max": 99,
+      "multiplier": 1.3,
+      "description_technical": "discards.return=true",
+      "tags": [
+        "chaos"
+      ]
+    },
+    {
+      "id": "R217",
+      "category": "chaos",
+      "subcategory": "weird",
+      "name_he": "כל קלף שני בלתי נראה",
+      "name_en": "Every other card invisible",
+      "risk": "high",
+      "stage_min": 10,
+      "stage_max": 99,
+      "multiplier": 1.5,
+      "description_technical": "hand.hideAlternate=true",
+      "tags": [
+        "chaos"
+      ]
+    },
+    {
+      "id": "R218",
+      "category": "chaos",
+      "subcategory": "weird",
+      "name_he": "סדר הקלפים חשוב",
+      "name_en": "Card order matters for scoring",
+      "risk": "medium",
+      "stage_min": 6,
+      "stage_max": 99,
+      "multiplier": 1.25,
+      "description_technical": "order.matters=true",
+      "tags": [
+        "chaos"
+      ]
+    },
+    {
+      "id": "R219",
+      "category": "chaos",
+      "subcategory": "weird",
+      "name_he": "ניקוד על בסיס ASCII",
+      "name_en": "Score based on card ASCII",
+      "risk": "medium",
+      "stage_min": 8,
+      "stage_max": 99,
+      "multiplier": 1.35,
+      "description_technical": "scoring='ascii'",
+      "tags": [
+        "chaos"
+      ]
+    },
+    {
+      "id": "R220",
+      "category": "chaos",
+      "subcategory": "weird",
+      "name_he": "היד הקודמת משפיעה על הנוכחית",
+      "name_en": "Last hand affects current",
+      "risk": "medium",
+      "stage_min": 7,
+      "stage_max": 99,
+      "multiplier": 1.3,
+      "description_technical": "lastHand.influence=true",
+      "tags": [
+        "chaos"
+      ]
+    },
+    {
+      "id": "R221",
+      "category": "chaos",
+      "subcategory": "weird",
+      "name_he": "ניקוד מוכפל בסיבובים אי-זוגיים",
+      "name_en": "Score doubled on odd rounds",
+      "risk": "low",
+      "stage_min": 3,
+      "stage_max": 99,
+      "multiplier": 1.1,
+      "description_technical": "oddRound.multiplier=2",
+      "tags": [
+        "chaos"
+      ]
+    },
+    {
+      "id": "R222",
+      "category": "chaos",
+      "subcategory": "weird",
+      "name_he": "ניקוד חצוי בסיבובים זוגיים",
+      "name_en": "Score halved on even rounds",
+      "risk": "medium",
+      "stage_min": 5,
+      "stage_max": 99,
+      "multiplier": 1.25,
+      "description_technical": "evenRound.multiplier=0.5",
+      "tags": [
+        "chaos"
+      ]
+    },
+    {
+      "id": "R223",
+      "category": "chaos",
+      "subcategory": "weird",
+      "name_he": "כל 10 סיבובים: ריסט חוקים",
+      "name_en": "Every 10 rounds: reset rules",
+      "risk": "high",
+      "stage_min": 10,
+      "stage_max": 99,
+      "multiplier": 1.5,
+      "description_technical": "rules.resetEvery=10",
+      "tags": [
+        "chaos"
+      ]
+    },
+    {
+      "id": "R224",
+      "category": "chaos",
+      "subcategory": "weird",
+      "name_he": "המשחק רץ אחורה",
+      "name_en": "Game runs in reverse",
+      "risk": "high",
+      "stage_min": 14,
+      "stage_max": 99,
+      "multiplier": 1.8,
+      "description_technical": "direction='reverse'",
+      "tags": [
+        "chaos"
+      ]
+    },
+    {
+      "id": "R225",
+      "category": "chaos",
+      "subcategory": "weird",
+      "name_he": "ניקוד סודי - רואים רק בסוף",
+      "name_en": "Secret scoring - revealed at end",
+      "risk": "high",
+      "stage_min": 12,
+      "stage_max": 99,
+      "multiplier": 1.6,
+      "description_technical": "scoring.hidden=true",
+      "tags": [
+        "chaos"
+      ]
+    },
+    {
+      "id": "R226",
+      "category": "player_upgrade",
+      "subcategory": "hand_size",
+      "name_he": "+1 קלפים ביד",
+      "name_en": "Hand size +1",
+      "risk": "low",
+      "stage_min": 1,
+      "stage_max": 99,
+      "multiplier": 1.0,
+      "description_technical": "handSize+=1",
+      "tags": [
+        "upgrade"
+      ]
+    },
+    {
+      "id": "R227",
+      "category": "player_upgrade",
+      "subcategory": "hand_size",
+      "name_he": "+2 קלפים ביד",
+      "name_en": "Hand size +2",
+      "risk": "medium",
+      "stage_min": 5,
+      "stage_max": 99,
+      "multiplier": 1.0,
+      "description_technical": "handSize+=2",
+      "tags": [
+        "upgrade"
+      ]
+    },
+    {
+      "id": "R228",
+      "category": "player_upgrade",
+      "subcategory": "hand_size",
+      "name_he": "+3 קלפים ביד",
+      "name_en": "Hand size +3",
+      "risk": "medium",
+      "stage_min": 8,
+      "stage_max": 99,
+      "multiplier": 1.0,
+      "description_technical": "handSize+=3",
+      "tags": [
+        "upgrade"
+      ]
+    },
+    {
+      "id": "R229",
+      "category": "player_upgrade",
+      "subcategory": "hand_size",
+      "name_he": "-1 קלפים ביד",
+      "name_en": "Hand size -1",
+      "risk": "medium",
+      "stage_min": 6,
+      "stage_max": 99,
+      "multiplier": 1.4,
+      "description_technical": "-handSize-=1",
+      "tags": [
+        "downgrade"
+      ]
+    },
+    {
+      "id": "R230",
+      "category": "player_upgrade",
+      "subcategory": "hand_size",
+      "name_he": "-2 קלפים ביד",
+      "name_en": "Hand size -2",
+      "risk": "high",
+      "stage_min": 10,
+      "stage_max": 99,
+      "multiplier": 1.7,
+      "description_technical": "handSize-=2",
+      "tags": [
+        "downgrade"
+      ]
+    },
+    {
+      "id": "R231",
+      "category": "player_upgrade",
+      "subcategory": "play_size",
+      "name_he": "+1 גודל יד סופית",
+      "name_en": "Play size +1",
+      "risk": "low",
+      "stage_min": 3,
+      "stage_max": 99,
+      "multiplier": 1.0,
+      "description_technical": "playSize+=1",
+      "tags": [
+        "upgrade"
+      ]
+    },
+    {
+      "id": "R232",
+      "category": "player_upgrade",
+      "subcategory": "play_size",
+      "name_he": "-1 גודל יד סופית",
+      "name_en": "Play size -1",
+      "risk": "medium",
+      "stage_min": 7,
+      "stage_max": 99,
+      "multiplier": 1.4,
+      "description_technical": "playSize-=1",
+      "tags": [
+        "downgrade"
+      ]
+    },
+    {
+      "id": "R233",
+      "category": "player_upgrade",
+      "subcategory": "play_size",
+      "name_he": "גודל יד משתנה: 3-6",
+      "name_en": "Variable play size: 3-6",
+      "risk": "medium",
+      "stage_min": 6,
+      "stage_max": 99,
+      "multiplier": 1.2,
+      "description_technical": "playSize=random(3,6)",
+      "tags": [
+        "chaos"
+      ]
+    },
+    {
+      "id": "R234",
+      "category": "player_upgrade",
+      "subcategory": "hands",
+      "name_he": "+1 ידיים לסיבוב",
+      "name_en": "Hands per round +1",
+      "risk": "low",
+      "stage_min": 2,
+      "stage_max": 99,
+      "multiplier": 1.0,
+      "description_technical": "handsPerRound+=1",
+      "tags": [
+        "upgrade"
+      ]
+    },
+    {
+      "id": "R235",
+      "category": "player_upgrade",
+      "subcategory": "hands",
+      "name_he": "+2 ידיים לסיבוב",
+      "name_en": "Hands per round +2",
+      "risk": "medium",
+      "stage_min": 5,
+      "stage_max": 99,
+      "multiplier": 1.0,
+      "description_technical": "handsPerRound+=2",
+      "tags": [
+        "upgrade"
+      ]
+    },
+    {
+      "id": "R236",
+      "category": "player_upgrade",
+      "subcategory": "hands",
+      "name_he": "-1 ידיים לסיבוב",
+      "name_en": "Hands per round -1",
+      "risk": "medium",
+      "stage_min": 7,
+      "stage_max": 99,
+      "multiplier": 1.4,
+      "description_technical": "handsPerRound-=1",
+      "tags": [
+        "downgrade"
+      ]
+    },
+    {
+      "id": "R237",
+      "category": "player_upgrade",
+      "subcategory": "discards",
+      "name_he": "+1 החלפות",
+      "name_en": "Discards +1",
+      "risk": "low",
+      "stage_min": 1,
+      "stage_max": 99,
+      "multiplier": 1.0,
+      "description_technical": "maxDiscards+=1",
+      "tags": [
+        "upgrade"
+      ]
+    },
+    {
+      "id": "R238",
+      "category": "player_upgrade",
+      "subcategory": "discards",
+      "name_he": "+2 החלפות",
+      "name_en": "Discards +2",
+      "risk": "low",
+      "stage_min": 4,
+      "stage_max": 99,
+      "multiplier": 1.0,
+      "description_technical": "maxDiscards+=2",
+      "tags": [
+        "upgrade"
+      ]
+    },
+    {
+      "id": "R239",
+      "category": "player_upgrade",
+      "subcategory": "discards",
+      "name_he": "-1 החלפות",
+      "name_en": "Discards -1",
+      "risk": "medium",
+      "stage_min": 6,
+      "stage_max": 99,
+      "multiplier": 1.3,
+      "description_technical": "maxDiscards-=1",
+      "tags": [
+        "downgrade"
+      ]
+    },
+    {
+      "id": "R240",
+      "category": "player_upgrade",
+      "subcategory": "discards",
+      "name_he": "החלפות אינסופיות",
+      "name_en": "Unlimited discards",
+      "risk": "medium",
+      "stage_min": 8,
+      "stage_max": 99,
+      "multiplier": 1.0,
+      "description_technical": "maxDiscards=99",
+      "tags": [
+        "upgrade",
+        "special"
+      ]
+    },
+    {
+      "id": "R241",
+      "category": "player_upgrade",
+      "subcategory": "rerolls",
+      "name_he": "+1 גלגולים",
+      "name_en": "Rerolls +1",
+      "risk": "low",
+      "stage_min": 1,
+      "stage_max": 99,
+      "multiplier": 1.0,
+      "description_technical": "ruleRerolls+=1",
+      "tags": [
+        "upgrade"
+      ]
+    },
+    {
+      "id": "R242",
+      "category": "player_upgrade",
+      "subcategory": "rerolls",
+      "name_he": "+2 גלגולים",
+      "name_en": "Rerolls +2",
+      "risk": "low",
+      "stage_min": 4,
+      "stage_max": 99,
+      "multiplier": 1.0,
+      "description_technical": "ruleRerolls+=2",
+      "tags": [
+        "upgrade"
+      ]
+    },
+    {
+      "id": "R243",
+      "category": "player_upgrade",
+      "subcategory": "rerolls",
+      "name_he": "אין גלגולים",
+      "name_en": "No rerolls",
+      "risk": "medium",
+      "stage_min": 7,
+      "stage_max": 99,
+      "multiplier": 1.35,
+      "description_technical": "ruleRerolls=0",
+      "tags": [
+        "downgrade"
+      ]
+    },
+    {
+      "id": "R244",
+      "category": "player_upgrade",
+      "subcategory": "special",
+      "name_he": "תעודת ביטול: הסר חוק פעיל",
+      "name_en": "Cancel card: remove 1 rule",
+      "risk": "medium",
+      "stage_min": 5,
+      "stage_max": 99,
+      "multiplier": 1.0,
+      "description_technical": "cancelCards+=1",
+      "tags": [
+        "special"
+      ]
+    },
+    {
+      "id": "R245",
+      "category": "player_upgrade",
+      "subcategory": "special",
+      "name_he": "2 תעודות ביטול",
+      "name_en": "2 cancel cards",
+      "risk": "medium",
+      "stage_min": 8,
+      "stage_max": 99,
+      "multiplier": 1.0,
+      "description_technical": "cancelCards+=2",
+      "tags": [
+        "special"
+      ]
+    },
+    {
+      "id": "R246",
+      "category": "player_upgrade",
+      "subcategory": "special",
+      "name_he": "מגן: חוק הבא לא משפיע",
+      "name_en": "Shield: next rule ignored",
+      "risk": "medium",
+      "stage_min": 6,
+      "stage_max": 99,
+      "multiplier": 1.0,
+      "description_technical": "shields+=1",
+      "tags": [
+        "special"
+      ]
+    },
+    {
+      "id": "R247",
+      "category": "player_upgrade",
+      "subcategory": "special",
+      "name_he": "צפייה: ראה את 3 החוקים הבאים",
+      "name_en": "Peek: see next 3 rules",
+      "risk": "low",
+      "stage_min": 3,
+      "stage_max": 99,
+      "multiplier": 1.0,
+      "description_technical": "peek=3",
+      "tags": [
+        "special"
+      ]
+    },
+    {
+      "id": "R248",
+      "category": "player_upgrade",
+      "subcategory": "special",
+      "name_he": "מכפיל ניקוד קבוע ×1.2",
+      "name_en": "Permanent score ×1.2",
+      "risk": "low",
+      "stage_min": 4,
+      "stage_max": 99,
+      "multiplier": 1.0,
+      "description_technical": "permanentMult*=1.2",
+      "tags": [
+        "upgrade",
+        "score"
+      ]
+    },
+    {
+      "id": "R249",
+      "category": "player_upgrade",
+      "subcategory": "special",
+      "name_he": "מכפיל ניקוד קבוע ×1.5",
+      "name_en": "Permanent score ×1.5",
+      "risk": "medium",
+      "stage_min": 8,
+      "stage_max": 99,
+      "multiplier": 1.0,
+      "description_technical": "permanentMult*=1.5",
+      "tags": [
+        "upgrade",
+        "score"
+      ]
+    },
+    {
+      "id": "R250",
+      "category": "player_upgrade",
+      "subcategory": "special",
+      "name_he": "מכפיל ניקוד קבוע ×2",
+      "name_en": "Permanent score ×2",
+      "risk": "high",
+      "stage_min": 14,
+      "stage_max": 99,
+      "multiplier": 1.0,
+      "description_technical": "permanentMult*=2",
+      "tags": [
+        "upgrade",
+        "score"
+      ]
+    },
+    {
+      "id": "R251",
+      "category": "player_upgrade",
+      "subcategory": "special",
+      "name_he": "סוחר: בחר מ-5 חוקים",
+      "name_en": "Merchant: choose from 5",
+      "risk": "low",
+      "stage_min": 4,
+      "stage_max": 99,
+      "multiplier": 1.0,
+      "description_technical": "ruleChoices=5",
+      "tags": [
+        "upgrade",
+        "meta"
+      ]
+    },
+    {
+      "id": "R252",
+      "category": "player_upgrade",
+      "subcategory": "special",
+      "name_he": "מנבא: ראה הסתברות מדויקת",
+      "name_en": "Prophet: see exact probability",
+      "risk": "low",
+      "stage_min": 2,
+      "stage_max": 99,
+      "multiplier": 1.0,
+      "description_technical": "showExactProb=true",
+      "tags": [
+        "upgrade",
+        "info"
+      ]
+    },
+    {
+      "id": "R253",
+      "category": "player_upgrade",
+      "subcategory": "special",
+      "name_he": "שחזור: חזור שלב אחורה (פעם אחת)",
+      "name_en": "Undo: go back 1 step",
+      "risk": "medium",
+      "stage_min": 6,
+      "stage_max": 99,
+      "multiplier": 1.0,
+      "description_technical": "undoAvailable=1",
+      "tags": [
+        "special"
+      ]
+    },
+    {
+      "id": "R254",
+      "category": "player_upgrade",
+      "subcategory": "special",
+      "name_he": "חיים נוספים: שרוד שבירה אחת",
+      "name_en": "Extra life: survive 1 break",
+      "risk": "high",
+      "stage_min": 10,
+      "stage_max": 99,
+      "multiplier": 1.0,
+      "description_technical": "extraLives+=1",
+      "tags": [
+        "special"
+      ]
+    },
+    {
+      "id": "R255",
+      "category": "named_combo",
+      "subcategory": "combo",
+      "name_he": "המינימליסט",
+      "name_en": "The Minimalist",
+      "risk": "info",
+      "stage_min": 1,
+      "stage_max": 99,
+      "multiplier": 1.0,
+      "description_technical": "trigger: playSize<=3 && noPairs. bonus:×2",
+      "tags": [
+        "combo_name"
+      ]
+    },
+    {
+      "id": "R256",
+      "category": "named_combo",
+      "subcategory": "combo",
+      "name_he": "ברית הדם",
+      "name_en": "Blood Pact",
+      "risk": "info",
+      "stage_min": 1,
+      "stage_max": 99,
+      "multiplier": 1.0,
+      "description_technical": "trigger: allRed && hearts×2. bonus:×2.5",
+      "tags": [
+        "combo_name"
+      ]
+    },
+    {
+      "id": "R257",
+      "category": "named_combo",
+      "subcategory": "combo",
+      "name_he": "חושך מוחלט",
+      "name_en": "Total Darkness",
+      "risk": "info",
+      "stage_min": 1,
+      "stage_max": 99,
+      "multiplier": 1.0,
+      "description_technical": "trigger: allBlack && noHearts && noDiamonds. bonus:×2.5",
+      "tags": [
+        "combo_name"
+      ]
+    },
+    {
+      "id": "R258",
+      "category": "named_combo",
+      "subcategory": "combo",
+      "name_he": "הפרדוקס",
+      "name_en": "The Paradox",
+      "risk": "info",
+      "stage_min": 1,
+      "stage_max": 99,
+      "multiplier": 1.0,
+      "description_technical": "trigger: 2+ conflicting constraints active. bonus:×3",
+      "tags": [
+        "combo_name"
+      ]
+    },
+    {
+      "id": "R259",
+      "category": "named_combo",
+      "subcategory": "combo",
+      "name_he": "על הקצה",
+      "name_en": "On The Edge",
+      "risk": "info",
+      "stage_min": 1,
+      "stage_max": 99,
+      "multiplier": 1.0,
+      "description_technical": "trigger: stability<10% && hand is valid. bonus:×4",
+      "tags": [
+        "combo_name"
+      ]
+    },
+    {
+      "id": "R260",
+      "category": "named_combo",
+      "subcategory": "combo",
+      "name_he": "שובר עולם",
+      "name_en": "World Breaker",
+      "risk": "info",
+      "stage_min": 1,
+      "stage_max": 99,
+      "multiplier": 1.0,
+      "description_technical": "trigger: 15+ active rules. bonus:×5",
+      "tags": [
+        "combo_name"
+      ]
+    },
+    {
+      "id": "R261",
+      "category": "named_combo",
+      "subcategory": "combo",
+      "name_he": "מלך הכאוס",
+      "name_en": "King of Chaos",
+      "risk": "info",
+      "stage_min": 1,
+      "stage_max": 99,
+      "multiplier": 1.0,
+      "description_technical": "trigger: 5+ chaos rules active. bonus:×3",
+      "tags": [
+        "combo_name"
+      ]
+    },
+    {
+      "id": "R262",
+      "category": "named_combo",
+      "subcategory": "combo",
+      "name_he": "הנביא",
+      "name_en": "The Prophet",
+      "risk": "info",
+      "stage_min": 1,
+      "stage_max": 99,
+      "multiplier": 1.0,
+      "description_technical": "trigger: 3 consecutive perfect hands. bonus:×2",
+      "tags": [
+        "combo_name"
+      ]
+    },
+    {
+      "id": "R263",
+      "category": "named_combo",
+      "subcategory": "combo",
+      "name_he": "חפיסה ריקה",
+      "name_en": "Empty Deck",
+      "risk": "info",
+      "stage_min": 1,
+      "stage_max": 99,
+      "multiplier": 1.0,
+      "description_technical": "trigger: deck<20 cards. bonus:×3",
+      "tags": [
+        "combo_name"
+      ]
+    },
+    {
+      "id": "R264",
+      "category": "named_combo",
+      "subcategory": "combo",
+      "name_he": "הקוסם",
+      "name_en": "The Magician",
+      "risk": "info",
+      "stage_min": 1,
+      "stage_max": 99,
+      "multiplier": 1.0,
+      "description_technical": "trigger: use 3+ wild/joker cards. bonus:×2",
+      "tags": [
+        "combo_name"
+      ]
+    },
+    {
+      "id": "R265",
+      "category": "named_combo",
+      "subcategory": "combo",
+      "name_he": "שרשרת ברזל",
+      "name_en": "Iron Chain",
+      "risk": "info",
+      "stage_min": 1,
+      "stage_max": 99,
+      "multiplier": 1.0,
+      "description_technical": "trigger: 5+ constraints all satisfied. bonus:×2.5",
+      "tags": [
+        "combo_name"
+      ]
+    },
+    {
+      "id": "R266",
+      "category": "named_combo",
+      "subcategory": "combo",
+      "name_he": "המהמר",
+      "name_en": "The Gambler",
+      "risk": "info",
+      "stage_min": 1,
+      "stage_max": 99,
+      "multiplier": 1.0,
+      "description_technical": "trigger: 3+ high-risk rules active. bonus:×3",
+      "tags": [
+        "combo_name"
+      ]
+    },
+    {
+      "id": "R267",
+      "category": "named_combo",
+      "subcategory": "combo",
+      "name_he": "אסטרטג קר",
+      "name_en": "Cold Strategist",
+      "risk": "info",
+      "stage_min": 1,
+      "stage_max": 99,
+      "multiplier": 1.0,
+      "description_technical": "trigger: 10+ rules, stability>50%. bonus:×2.5",
+      "tags": [
+        "combo_name"
+      ]
+    },
+    {
+      "id": "R268",
+      "category": "named_combo",
+      "subcategory": "combo",
+      "name_he": "הישרדות",
+      "name_en": "Survival Mode",
+      "risk": "info",
+      "stage_min": 1,
+      "stage_max": 99,
+      "multiplier": 1.0,
+      "description_technical": "trigger: 1 hand left, 1 discard, score target met. bonus:×3",
+      "tags": [
+        "combo_name"
+      ]
+    },
+    {
+      "id": "R269",
+      "category": "named_combo",
+      "subcategory": "combo",
+      "name_he": "רויאל כאוס",
+      "name_en": "Royal Chaos",
+      "risk": "info",
+      "stage_min": 1,
+      "stage_max": 99,
+      "multiplier": 1.0,
+      "description_technical": "trigger: flush req + all face cards removed. bonus:×4",
+      "tags": [
+        "combo_name"
+      ]
+    },
+    {
+      "id": "R270",
+      "category": "hand_constraint",
+      "subcategory": "must_have",
+      "name_he": "חייב בדיוק 2 צבעים",
+      "name_en": "Must have exactly 2 suits",
+      "risk": "medium",
+      "stage_min": 5,
+      "stage_max": 99,
+      "multiplier": 1.3,
+      "description_technical": "hand.suitCount()==2",
+      "tags": [
+        "suit"
+      ]
+    },
+    {
+      "id": "R271",
+      "category": "hand_constraint",
+      "subcategory": "must_have",
+      "name_he": "חייב שהסכום מתחלק ב-3",
+      "name_en": "Hand sum divisible by 3",
+      "risk": "medium",
+      "stage_min": 4,
+      "stage_max": 99,
+      "multiplier": 1.2,
+      "description_technical": "hand.sum()%3==0",
+      "tags": [
+        "value"
+      ]
+    },
+    {
+      "id": "R272",
+      "category": "hand_constraint",
+      "subcategory": "must_have",
+      "name_he": "חייב שהסכום מתחלק ב-5",
+      "name_en": "Hand sum divisible by 5",
+      "risk": "medium",
+      "stage_min": 5,
+      "stage_max": 99,
+      "multiplier": 1.25,
+      "description_technical": "hand.sum()%5==0",
+      "tags": [
+        "value"
+      ]
+    },
+    {
+      "id": "R273",
+      "category": "hand_constraint",
+      "subcategory": "must_have",
+      "name_he": "חייב קלף 7",
+      "name_en": "Must contain a 7",
+      "risk": "low",
+      "stage_min": 2,
+      "stage_max": 99,
+      "multiplier": 1.1,
+      "description_technical": "hand.any(c=>c.value==7)",
+      "tags": [
+        "value"
+      ]
+    },
+    {
+      "id": "R274",
+      "category": "hand_constraint",
+      "subcategory": "must_have",
+      "name_he": "חייב קלף 10",
+      "name_en": "Must contain a 10",
+      "risk": "low",
+      "stage_min": 2,
+      "stage_max": 99,
+      "multiplier": 1.1,
+      "description_technical": "hand.any(c=>c.value==10)",
+      "tags": [
+        "value"
+      ]
+    },
+    {
+      "id": "R275",
+      "category": "hand_constraint",
+      "subcategory": "forbidden",
+      "name_he": "אסור ערך 7",
+      "name_en": "No 7s allowed",
+      "risk": "low",
+      "stage_min": 3,
+      "stage_max": 99,
+      "multiplier": 1.1,
+      "description_technical": "hand.none(c=>c.value==7)",
+      "tags": [
+        "value"
+      ]
+    },
+    {
+      "id": "R276",
+      "category": "hand_constraint",
+      "subcategory": "forbidden",
+      "name_he": "אסור יותר מ-2 מאותו סוג",
+      "name_en": "Max 2 of any suit",
+      "risk": "medium",
+      "stage_min": 5,
+      "stage_max": 99,
+      "multiplier": 1.3,
+      "description_technical": "hand.maxSuitCount()<=2",
+      "tags": [
+        "suit"
+      ]
+    },
+    {
+      "id": "R277",
+      "category": "hand_constraint",
+      "subcategory": "forbidden",
+      "name_he": "אסור ג'וקרים",
+      "name_en": "No jokers allowed",
+      "risk": "low",
+      "stage_min": 3,
+      "stage_max": 99,
+      "multiplier": 1.1,
+      "description_technical": "hand.none(c=>c.isJoker)",
+      "tags": [
+        "wild"
+      ]
+    },
+    {
+      "id": "R278",
+      "category": "score_modifier",
+      "subcategory": "special",
+      "name_he": "ניקוד = מספר הקלפים ×100",
+      "name_en": "Score = card count ×100",
+      "risk": "medium",
+      "stage_min": 6,
+      "stage_max": 99,
+      "multiplier": 1.3,
+      "description_technical": "score=hand.size()*100",
+      "tags": [
+        "special"
+      ]
+    },
+    {
+      "id": "R279",
+      "category": "score_modifier",
+      "subcategory": "combo",
+      "name_he": "3 אדומים + 2 שחורים = ×2",
+      "name_en": "3 red + 2 black = ×2",
+      "risk": "low",
+      "stage_min": 3,
+      "stage_max": 99,
+      "multiplier": 1.15,
+      "description_technical": "if(redCount==3&&blackCount==2) mult*=2",
+      "tags": [
+        "combo",
+        "color"
+      ]
+    },
+    {
+      "id": "R280",
+      "category": "score_modifier",
+      "subcategory": "combo",
+      "name_he": "רצף של 4+ = ×2.5",
+      "name_en": "Run of 4+ = ×2.5",
+      "risk": "medium",
+      "stage_min": 5,
+      "stage_max": 99,
+      "multiplier": 1.25,
+      "description_technical": "if(hasRun(4)) mult*=2.5",
+      "tags": [
+        "combo"
+      ]
+    },
+    {
+      "id": "R281",
+      "category": "score_modifier",
+      "subcategory": "penalty",
+      "name_he": "סוג חסר = -30",
+      "name_en": "Missing suit = -30 each",
+      "risk": "medium",
+      "stage_min": 5,
+      "stage_max": 99,
+      "multiplier": 1.25,
+      "description_technical": "missingSuits.forEach(()=>score-=30)",
+      "tags": [
+        "penalty"
+      ]
+    },
+    {
+      "id": "R282",
+      "category": "score_modifier",
+      "subcategory": "value_mod",
+      "name_he": "קלף 5 = Wild",
+      "name_en": "5 acts as wild card",
+      "risk": "medium",
+      "stage_min": 6,
+      "stage_max": 99,
+      "multiplier": 1.3,
+      "description_technical": "card5.wild=true",
+      "tags": [
+        "value",
+        "wild"
+      ]
+    },
+    {
+      "id": "R283",
+      "category": "deck_mutation",
+      "subcategory": "add_special",
+      "name_he": "הוסף 4 קלפי מראה (מעתיקים קלף שכן)",
+      "name_en": "Add 4 mirror cards",
+      "risk": "medium",
+      "stage_min": 7,
+      "stage_max": 99,
+      "multiplier": 1.35,
+      "description_technical": "deck.addMirror(4)",
+      "tags": [
+        "add",
+        "special"
+      ]
+    },
+    {
+      "id": "R284",
+      "category": "deck_mutation",
+      "subcategory": "remove_special",
+      "name_he": "הסר כל קלף שלישי",
+      "name_en": "Remove every 3rd card",
+      "risk": "high",
+      "stage_min": 10,
+      "stage_max": 99,
+      "multiplier": 1.5,
+      "description_technical": "deck.removeEveryNth(3)",
+      "tags": [
+        "remove"
+      ]
+    },
+    {
+      "id": "R285",
+      "category": "deck_mutation",
+      "subcategory": "transform",
+      "name_he": "כל הקלפים הופכים לאותו סוג",
+      "name_en": "All cards become same suit",
+      "risk": "high",
+      "stage_min": 12,
+      "stage_max": 99,
+      "multiplier": 1.8,
+      "description_technical": "deck.uniformSuit(random)",
+      "tags": [
+        "transform",
+        "suit"
+      ]
+    },
+    {
+      "id": "R286",
+      "category": "deck_mutation",
+      "subcategory": "property",
+      "name_he": "חפיסה גדלה: +2 קלפים כל סיבוב",
+      "name_en": "Growing deck: +2/round",
+      "risk": "low",
+      "stage_min": 4,
+      "stage_max": 99,
+      "multiplier": 1.1,
+      "description_technical": "deck.growPerRound=2",
+      "tags": [
+        "property",
+        "dynamic"
+      ]
+    },
+    {
+      "id": "R287",
+      "category": "deck_mutation",
+      "subcategory": "add_value",
+      "name_he": "הוסף קלפי 1 (מתחת ל-2)",
+      "name_en": "Add value-1 cards",
+      "risk": "medium",
+      "stage_min": 6,
+      "stage_max": 99,
+      "multiplier": 1.25,
+      "description_technical": "deck.addValue(1)",
+      "tags": [
+        "add",
+        "value"
+      ]
+    },
+    {
+      "id": "R288",
+      "category": "chaos",
+      "subcategory": "weird",
+      "name_he": "הניקוד מוכפל אם הסיבוב ראשוני",
+      "name_en": "First round score ×3",
+      "risk": "low",
+      "stage_min": 1,
+      "stage_max": 99,
+      "multiplier": 1.0,
+      "description_technical": "if(round==1) mult*=3",
+      "tags": [
+        "chaos"
+      ]
+    },
+    {
+      "id": "R289",
+      "category": "chaos",
+      "subcategory": "weird",
+      "name_he": "יד אחרונה = ×5",
+      "name_en": "Final hand ×5 multiplier",
+      "risk": "medium",
+      "stage_min": 6,
+      "stage_max": 99,
+      "multiplier": 1.3,
+      "description_technical": "if(lastHand) mult*=5",
+      "tags": [
+        "chaos"
+      ]
+    },
+    {
+      "id": "R290",
+      "category": "chaos",
+      "subcategory": "dynamic",
+      "name_he": "חוק פעיל מתחזק כל 2 סיבובים",
+      "name_en": "Active rule strengthens every 2",
+      "risk": "medium",
+      "stage_min": 8,
+      "stage_max": 99,
+      "multiplier": 1.4,
+      "description_technical": "rule.strengthen(2)",
+      "tags": [
+        "dynamic"
+      ]
+    },
+    {
+      "id": "R291",
+      "category": "chaos",
+      "subcategory": "meta",
+      "name_he": "ניתן להחליף חוק עם היריב",
+      "name_en": "Can swap rule with opponent",
+      "risk": "medium",
+      "stage_min": 7,
+      "stage_max": 99,
+      "multiplier": 1.3,
+      "description_technical": "swapAvailable=1",
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "id": "R292",
+      "category": "chaos",
+      "subcategory": "redefine",
+      "name_he": "סטרייט הפוך: סדר יורד בלבד",
+      "name_en": "Reverse straight only",
+      "risk": "medium",
+      "stage_min": 6,
+      "stage_max": 99,
+      "multiplier": 1.25,
+      "description_technical": "straight.direction='desc'",
+      "tags": [
+        "redefine"
+      ]
+    },
+    {
+      "id": "R293",
+      "category": "chaos",
+      "subcategory": "wild",
+      "name_he": "Wild משתנה כל סיבוב",
+      "name_en": "Wild changes each round",
+      "risk": "medium",
+      "stage_min": 7,
+      "stage_max": 99,
+      "multiplier": 1.3,
+      "description_technical": "wild.dynamic=true",
+      "tags": [
+        "wild"
+      ]
+    },
+    {
+      "id": "R294",
+      "category": "player_upgrade",
+      "subcategory": "special",
+      "name_he": "מטבעות: צבור 50 נק' = שדרוג",
+      "name_en": "Coins: 50pts = 1 upgrade",
+      "risk": "low",
+      "stage_min": 1,
+      "stage_max": 99,
+      "multiplier": 1.0,
+      "description_technical": "coinSystem=true",
+      "tags": [
+        "upgrade",
+        "economy"
+      ]
+    },
+    {
+      "id": "R295",
+      "category": "player_upgrade",
+      "subcategory": "special",
+      "name_he": "חנות: קנה שדרוגים בניקוד",
+      "name_en": "Shop: buy upgrades with score",
+      "risk": "medium",
+      "stage_min": 5,
+      "stage_max": 99,
+      "multiplier": 1.0,
+      "description_technical": "shopAvailable=true",
+      "tags": [
+        "upgrade",
+        "economy"
+      ]
+    },
+    {
+      "id": "R296",
+      "category": "player_upgrade",
+      "subcategory": "special",
+      "name_he": "הימור: סכן ניקוד על תוצאה",
+      "name_en": "Gamble: risk score on outcome",
+      "risk": "medium",
+      "stage_min": 7,
+      "stage_max": 99,
+      "multiplier": 1.0,
+      "description_technical": "gambleAvailable=true",
+      "tags": [
+        "upgrade",
+        "risk"
+      ]
+    },
+    {
+      "id": "R297",
+      "category": "player_upgrade",
+      "subcategory": "special",
+      "name_he": "מנטור: ראה חוק מומלץ",
+      "name_en": "Mentor: see recommended rule",
+      "risk": "low",
+      "stage_min": 3,
+      "stage_max": 99,
+      "multiplier": 1.0,
+      "description_technical": "mentorAvailable=true",
+      "tags": [
+        "upgrade",
+        "info"
+      ]
+    },
+    {
+      "id": "R298",
+      "category": "player_upgrade",
+      "subcategory": "special",
+      "name_he": "פריצה: שנה חוק פעיל",
+      "name_en": "Hack: modify active rule",
+      "risk": "high",
+      "stage_min": 10,
+      "stage_max": 99,
+      "multiplier": 1.0,
+      "description_technical": "hackAvailable=1",
+      "tags": [
+        "special"
+      ]
+    },
+    {
+      "id": "R299",
+      "category": "player_upgrade",
+      "subcategory": "special",
+      "name_he": "שיבוט: שכפל שדרוג קיים",
+      "name_en": "Clone: duplicate an upgrade",
+      "risk": "medium",
+      "stage_min": 8,
+      "stage_max": 99,
+      "multiplier": 1.0,
+      "description_technical": "cloneAvailable=1",
+      "tags": [
+        "special"
+      ]
+    },
+    {
+      "id": "R300",
+      "category": "named_combo",
+      "subcategory": "combo",
+      "name_he": "הארכיטקט",
+      "name_en": "The Architect",
+      "risk": "info",
+      "stage_min": 1,
+      "stage_max": 99,
+      "multiplier": 1.0,
+      "description_technical": "trigger: 3+ structure rules active. bonus:×2",
+      "tags": [
+        "combo_name"
+      ]
+    },
+    {
+      "id": "R301",
+      "category": "named_combo",
+      "subcategory": "combo",
+      "name_he": "מוטציה מלאה",
+      "name_en": "Full Mutation",
+      "risk": "info",
+      "stage_min": 1,
+      "stage_max": 99,
+      "multiplier": 1.0,
+      "description_technical": "trigger: 5+ deck mutations active. bonus:×3",
+      "tags": [
+        "combo_name"
+      ]
+    },
+    {
+      "id": "R302",
+      "category": "named_combo",
+      "subcategory": "combo",
+      "name_he": "הנמר",
+      "name_en": "The Tiger",
+      "risk": "info",
+      "stage_min": 1,
+      "stage_max": 99,
+      "multiplier": 1.0,
+      "description_technical": "trigger: all cards same color + flush. bonus:×2.5",
+      "tags": [
+        "combo_name"
+      ]
+    },
+    {
+      "id": "R303",
+      "category": "named_combo",
+      "subcategory": "combo",
+      "name_he": "שובר הכל",
+      "name_en": "Break Everything",
+      "risk": "info",
+      "stage_min": 1,
+      "stage_max": 99,
+      "multiplier": 1.0,
+      "description_technical": "trigger: 20+ rules active. bonus:×10",
+      "tags": [
+        "combo_name"
+      ]
+    },
+    {
+      "id": "R304",
+      "category": "named_combo",
+      "subcategory": "combo",
+      "name_he": "מאסטר הקלפים",
+      "name_en": "Card Master",
+      "risk": "info",
+      "stage_min": 1,
+      "stage_max": 99,
+      "multiplier": 1.0,
+      "description_technical": "trigger: perfect hand 5 times in a run. bonus:×3",
+      "tags": [
+        "combo_name"
+      ]
+    }
+  ]
+}

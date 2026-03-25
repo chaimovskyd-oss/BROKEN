@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>קלף שבור — Broken Deck</title>
+
+  <!-- Google Fonts: Cinzel (headings) + Inter (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/screens.css" />
+</head>
+<body dir="rtl">
+
+  <div id="game-container">
+
+    <!-- Screen 1: Title -->
+    <div id="screen-title" class="game-screen">
+      <p>מסך כותרת</p>
+    </div>
+
+    <!-- Screen 2: Rule Pick -->
+    <div id="screen-rule-pick" class="game-screen">
+      <p>בחירת חוק</p>
+    </div>
+
+    <!-- Screen 3: Hand Play -->
+    <div id="screen-hand-play" class="game-screen">
+      <p>משחק יד</p>
+    </div>
+
+    <!-- Screen 4: Round Summary -->
+    <div id="screen-round-summary" class="game-screen">
+      <p>סיכום סיבוב</p>
+    </div>
+
+    <!-- Screen 5: Shop -->
+    <div id="screen-shop" class="game-screen">
+      <p>חנות</p>
+    </div>
+
+    <!-- Screen 6: Game Over -->
+    <div id="screen-game-over" class="game-screen">
+      <p>סוף המשחק</p>
+    </div>
+
+    <!-- Screen 7: Victory -->
+    <div id="screen-victory" class="game-screen">
+      <p>ניצחון</p>
+    </div>
+
+  </div><!-- /#game-container -->
+
+  <noscript>
+    <div style="
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #0a0f1e;
+      color: #e3c060;
+      font-family: sans-serif;
+      font-size: 1.2rem;
+      text-align: center;
+      padding: 2rem;
+      direction: rtl;
+    ">
+      <p>
+        המשחק דורש JavaScript מופעל בדפדפן.<br />
+        אנא הפעל JavaScript וטען מחדש את הדף.
+      </p>
+    </div>
+  </noscript>
+
+  <!-- Game scripts (order matters) -->
+  <script src="js/data.js"></script>
+  <script src="js/cards.js"></script>
+  <script src="js/rules-engine.js"></script>
+  <script src="js/game.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>
