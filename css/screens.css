@@ -1,0 +1,754 @@
+/* ==========================================================================
+   screens.css — Broken Deck (קלף שבור)
+   Per-screen layout CSS for the 7 game screens
+   RTL Hebrew · Dark mystical theme
+   ========================================================================== */
+
+/* ==========================================================================
+   Screen 1: #screen-title — Title / Main Menu
+   ========================================================================== */
+
+#screen-title {
+  background-image: url('../אלמנטים/רקע תפריט.svg');
+  background-size: cover;
+  background-position: center;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* Central content column */
+.title-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  text-align: center;
+}
+
+/* Logo + subtitle stacked wrapper */
+.title-logo-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.title-subtitle {
+  font-size: 14px;
+  color: var(--text-secondary);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+/* Persistent stats strip (games played, best score, etc.) */
+.title-stats {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  padding: 16px 32px;
+  background: rgba(22, 24, 48, 0.6);
+  border: 1px solid rgba(201, 162, 39, 0.2);
+  border-radius: 12px;
+}
+
+.title-stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.title-stat-item .label {
+  font-size: 10px;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.title-stat-item .value {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-gold);
+}
+
+/* CTA button column */
+.title-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  min-width: 200px;
+}
+
+.title-version {
+  font-size: 11px;
+  color: var(--text-secondary);
+  opacity: 0.5;
+}
+
+/* ==========================================================================
+   Screen 2: #screen-rule-pick — Choose Rule Cards
+   ========================================================================== */
+
+#screen-rule-pick {
+  background-image: url('../אלמנטים/רקע קלפי חוקים.svg');
+  background-size: cover;
+  background-position: center;
+  flex-direction: column;
+}
+
+/* Top bar */
+.rule-pick-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  background: rgba(10, 15, 30, 0.8);
+  border-bottom: 1px solid rgba(201, 162, 39, 0.2);
+}
+
+.rule-pick-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.2rem;
+  color: var(--text-gold);
+}
+
+/* Scrollable rule-card area */
+.rule-pick-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  gap: 24px;
+}
+
+.rule-pick-prompt {
+  font-size: 14px;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+/* Row / grid of selectable rule cards */
+.rule-cards-container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+
+/* Bottom action bar */
+.rule-pick-footer {
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(10, 15, 30, 0.8);
+  border-top: 1px solid rgba(201, 162, 39, 0.2);
+}
+
+/* Currently active rules section (shown in footer or below prompt) */
+.active-rules-section {
+  width: 100%;
+  max-width: 800px;
+}
+
+.active-rules-title {
+  font-size: 12px;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
+}
+
+/* ==========================================================================
+   Screen 3: #screen-hand-play — Main Gameplay
+   ========================================================================== */
+
+#screen-hand-play {
+  flex-direction: column;
+  background: radial-gradient(ellipse at 50% 0%, #1a0a2e 0%, #0a0f1e 60%);
+}
+
+/* ---- Header bar ---- */
+.hand-play-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  background: rgba(10, 15, 30, 0.9);
+  border-bottom: 1px solid rgba(201, 162, 39, 0.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.header-logo {
+  font-family: 'Cinzel', serif;
+  font-size: 1.1rem;
+  color: var(--text-gold);
+}
+
+.header-stats {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+/* ---- Scrollable body ---- */
+.hand-play-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Active-rules scroll strip */
+.active-rules-bar-wrap {
+  padding: 10px 20px;
+  background: rgba(10, 15, 30, 0.6);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+
+/* Main card table — horizontal split */
+.play-area {
+  flex: 1;
+  display: flex;
+  gap: 0;
+  overflow: hidden;
+}
+
+/* Player hand zone */
+.hand-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.hand-cards {
+  display: flex;
+  gap: 12px;
+  align-items: flex-end;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Deck / discard sidebar */
+.side-panel {
+  width: 140px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 16px;
+  border-left: 1px solid rgba(201, 162, 39, 0.1);
+  background: rgba(10, 15, 30, 0.4);
+}
+
+.side-panel-label {
+  font-size: 10px;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-align: center;
+}
+
+.deck-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.discard-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.deck-count-badge {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.hand-instructions {
+  font-size: 12px;
+  color: var(--text-secondary);
+  text-align: center;
+  max-width: 300px;
+  line-height: 1.6;
+  margin-top: 12px;
+}
+
+/* ---- Bottom HUD / footer ---- */
+.hand-play-footer {
+  padding: 16px 24px;
+  background: rgba(10, 15, 30, 0.95);
+  border-top: 1px solid rgba(201, 162, 39, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.hud-section {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.hud-label {
+  font-size: 10px;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.hud-value {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-gold);
+}
+
+.hud-divider {
+  width: 1px;
+  height: 40px;
+  background: rgba(201, 162, 39, 0.2);
+  flex-shrink: 0;
+}
+
+/*
+ * RTL note: margin-left: auto pushes the element toward the
+ * physical right edge, which is the logical "start" in RTL —
+ * keeping action buttons near the right (reading-start) side.
+ */
+.hud-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-left: auto;
+}
+
+/* Score readout */
+.score-display {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.score-current {
+  font-size: 28px;
+  font-weight: 700;
+  font-family: 'Cinzel', serif;
+  color: var(--text-gold);
+  line-height: 1;
+}
+
+.score-divider {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.score-target {
+  font-size: 16px;
+  color: var(--text-secondary);
+}
+
+/* Inline hand validation feedback */
+.hand-result-message {
+  font-size: 13px;
+  padding: 4px 12px;
+  border-radius: 6px;
+}
+
+.hand-result-message.valid {
+  background: rgba(34, 197, 94, 0.15);
+  color: var(--risk-low);
+}
+
+.hand-result-message.invalid {
+  background: rgba(239, 68, 68, 0.15);
+  color: var(--risk-high);
+}
+
+/* ==========================================================================
+   Screen 4: #screen-round-summary — Round End Summary
+   ========================================================================== */
+
+#screen-round-summary {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(ellipse at center, #1a0a2e 0%, #0a0f1e 70%);
+}
+
+/* Main panel card */
+.round-summary-panel {
+  background: linear-gradient(135deg, #161830 0%, #1a0a2e 100%);
+  border: 1px solid rgba(201, 162, 39, 0.25);
+  border-radius: 16px;
+  box-shadow:
+    0 0 0 1px rgba(201, 162, 39, 0.05),
+    0 8px 32px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  max-width: 500px;
+  width: 90%;
+  padding: 32px;
+}
+
+.summary-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.5rem;
+  color: var(--text-gold);
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.summary-hand-display {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+/* Score breakdown table rows */
+.summary-score-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.summary-score-row .label {
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.summary-score-row .value {
+  font-weight: 700;
+  color: var(--text-gold);
+  font-size: 16px;
+}
+
+.summary-total {
+  font-size: 24px;
+  color: var(--text-gold);
+  font-weight: 700;
+}
+
+/* Campaign progress section */
+.summary-progress {
+  margin: 20px 0;
+}
+
+.summary-progress-label {
+  font-size: 12px;
+  color: var(--text-secondary);
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+/* Combo / achievement pill badges */
+.combo-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.combo-badge {
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  background: rgba(139, 92, 246, 0.2);
+  color: #a78bfa;
+  border: 1px solid rgba(139, 92, 246, 0.3);
+}
+
+/* ==========================================================================
+   Screen 5: #screen-shop — Between-Round Shop
+   ========================================================================== */
+
+#screen-shop {
+  flex-direction: column;
+  background: radial-gradient(ellipse at top, #0d2235 0%, #0a0f1e 60%);
+}
+
+/* Top bar with coin display on the left (start in RTL) */
+.shop-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  background: rgba(10, 15, 30, 0.8);
+  border-bottom: 1px solid rgba(201, 162, 39, 0.2);
+}
+
+.shop-header-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.2rem;
+  color: var(--text-gold);
+}
+
+/* Scrollable shop area */
+.shop-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  gap: 24px;
+  overflow-y: auto;
+}
+
+.shop-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.4rem;
+  color: var(--text-gold);
+  text-align: center;
+}
+
+/* 2-column item grid */
+.shop-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  max-width: 600px;
+  width: 100%;
+}
+
+/* Individual shop item tile */
+.shop-item {
+  background: linear-gradient(135deg, #161830 0%, #1a0a2e 100%);
+  border: 1px solid rgba(201, 162, 39, 0.25);
+  border-radius: 16px;
+  box-shadow:
+    0 0 0 1px rgba(201, 162, 39, 0.05),
+    0 4px 16px rgba(0, 0, 0, 0.4);
+  padding: 16px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: all 0.2s ease;
+}
+
+.shop-item:hover {
+  transform: translateY(-3px);
+  border-color: var(--gold-dim);
+  box-shadow:
+    0 0 0 1px rgba(201, 162, 39, 0.1),
+    0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+.shop-item.soldout {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.shop-item.soldout:hover {
+  transform: none;
+  border-color: rgba(201, 162, 39, 0.25);
+}
+
+.shop-item-icon {
+  font-size: 2rem;
+  text-align: center;
+}
+
+.shop-item-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.shop-item-desc {
+  font-size: 12px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* Price row at the bottom of each tile */
+.shop-item-price {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+}
+
+.shop-item-cost {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-gold);
+}
+
+/* ==========================================================================
+   Screen 6: #screen-game-over — Game Over
+   ========================================================================== */
+
+#screen-game-over {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(ellipse at center, #2a0a0a 0%, #0a0f1e 70%);
+}
+
+.game-over-panel {
+  max-width: 450px;
+  width: 90%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.game-over-title {
+  font-family: 'Cinzel', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--risk-high);
+  text-shadow: 0 0 20px rgba(239, 68, 68, 0.4);
+  line-height: 1.1;
+}
+
+.game-over-reason {
+  font-size: 14px;
+  color: var(--text-secondary);
+  max-width: 300px;
+  line-height: 1.6;
+}
+
+/* Final stats row */
+.game-over-stats {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+}
+
+.game-over-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+}
+
+.game-over-stat .label {
+  font-size: 10px;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.game-over-stat .value {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+/* Decorative crack / broken symbol */
+.game-over-crack {
+  font-size: 3rem;
+  opacity: 0.3;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   Screen 7: #screen-victory — Victory
+   ========================================================================== */
+
+#screen-victory {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(ellipse at center, #1a1a0a 0%, #0a0f1e 70%);
+}
+
+.victory-panel {
+  max-width: 450px;
+  width: 90%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.victory-title {
+  font-family: 'Cinzel', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-gold);
+  animation: victory-glow 2s ease-in-out infinite;
+  line-height: 1.1;
+}
+
+@keyframes victory-glow {
+  0%,
+  100% {
+    text-shadow: 0 0 10px rgba(201, 162, 39, 0.4);
+  }
+  50% {
+    text-shadow:
+      0 0 30px rgba(201, 162, 39, 0.8),
+      0 0 60px rgba(201, 162, 39, 0.4);
+  }
+}
+
+.victory-score {
+  font-size: 3rem;
+  font-weight: 700;
+  font-family: 'Cinzel', serif;
+  color: var(--text-gold);
+  line-height: 1;
+}
+
+.victory-subtitle {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+/* Optional stats row on victory screen */
+.victory-stats {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+}
+
+.victory-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+}
+
+.victory-stat .label {
+  font-size: 10px;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.victory-stat .value {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-gold);
+}

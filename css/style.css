@@ -1,0 +1,589 @@
+/* ============================================================
+   BROKEN DECK — style.css
+   Base styles, design tokens, and shared components
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   Design Tokens
+   ------------------------------------------------------------ */
+:root {
+  /* Backgrounds */
+  --bg-void:         #0a0f1e;
+  --bg-deep:         #1a0a2e;
+  --bg-teal:         #0d2235;
+  --bg-panel:        #161830;
+  --bg-panel-light:  #1e2545;
+
+  /* Gold palette */
+  --gold:            #c9a227;
+  --gold-light:      #e3c060;
+  --gold-dim:        #7a5e14;
+
+  /* Glow accents */
+  --purple-glow:     #8b5cf6;
+  --teal-glow:       #14b8a6;
+  --pink-danger:     #ec4899;
+  --red-danger:      #ef4444;
+
+  /* Text */
+  --text-primary:    #f0e8d8;
+  --text-secondary:  #9ca3af;
+  --text-gold:       #e3c060;
+  --text-danger:     #fca5a5;
+
+  /* Risk levels */
+  --risk-low:        #22c55e;
+  --risk-medium:     #f59e0b;
+  --risk-high:       #ef4444;
+
+  /* Shadows & transitions */
+  --card-shadow:      0 8px 32px rgba(0, 0, 0, 0.6);
+  --transition-fast:  0.15s ease;
+  --transition-card:  0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ------------------------------------------------------------
+   Reset / Base
+   ------------------------------------------------------------ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: var(--bg-void);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow: hidden;
+  direction: rtl;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ------------------------------------------------------------
+   Game Container
+   ------------------------------------------------------------ */
+#game-container {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  background-image: url('../אלמנטים/רקע.svg');
+  background-size: cover;
+  background-position: center;
+}
+
+/* ------------------------------------------------------------
+   Game Screen System
+   ------------------------------------------------------------ */
+.game-screen {
+  display: none;
+  position: absolute;
+  inset: 0;
+  flex-direction: column;
+}
+
+.game-screen.active {
+  display: flex;
+}
+
+/* ------------------------------------------------------------
+   Panel Frame
+   ------------------------------------------------------------ */
+.panel-frame {
+  background: linear-gradient(135deg, #161830 0%, #1a0a2e 100%);
+  border: 1px solid var(--gold-dim);
+  border-radius: 12px;
+  box-shadow:
+    0 0 0 1px rgba(201, 162, 39, 0.1),
+    0 4px 24px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(201, 162, 39, 0.15);
+  padding: 16px;
+}
+
+/* ------------------------------------------------------------
+   Stat Badge
+   ------------------------------------------------------------ */
+.stat-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 16px;
+  background: rgba(22, 24, 48, 0.8);
+  border: 1px solid var(--gold-dim);
+  border-radius: 8px;
+}
+
+.stat-badge .label {
+  font-size: 10px;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.stat-badge .value {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-gold);
+}
+
+/* ------------------------------------------------------------
+   Card Component
+   ------------------------------------------------------------ */
+.game-card {
+  width: 85px;
+  height: 119px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition:
+    transform var(--transition-card),
+    box-shadow var(--transition-card);
+  box-shadow: var(--card-shadow);
+  position: relative;
+  animation: card-deal 0.35s ease-out backwards;
+  flex-shrink: 0;
+}
+
+.game-card img {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  display: block;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Hover state */
+.game-card:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow:
+    var(--card-shadow),
+    0 16px 40px rgba(0, 0, 0, 0.7),
+    0 0 16px rgba(201, 162, 39, 0.2);
+}
+
+/* Selected state */
+.game-card.selected {
+  transform: translateY(-18px);
+  box-shadow:
+    0 0 0 2px #c9a227,
+    0 0 20px rgba(201, 162, 39, 0.7),
+    0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* Invalid state */
+.game-card.invalid {
+  box-shadow:
+    0 0 0 2px var(--red-danger),
+    0 0 16px rgba(239, 68, 68, 0.5),
+    var(--card-shadow);
+}
+
+.game-card.invalid::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(239, 68, 68, 0.2);
+  border-radius: 8px;
+  pointer-events: none;
+}
+
+/* Boosted state */
+.game-card.boosted {
+  box-shadow:
+    0 0 0 2px var(--purple-glow),
+    0 0 20px rgba(139, 92, 246, 0.6),
+    var(--card-shadow);
+}
+
+/* Card deal animation */
+@keyframes card-deal {
+  from {
+    opacity: 0;
+    transform: translateY(50px) rotate(-8deg) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+}
+
+/* ------------------------------------------------------------
+   Rule Card
+   ------------------------------------------------------------ */
+.rule-card {
+  min-width: 200px;
+  max-width: 240px;
+  flex: 1;
+  padding: 20px 16px;
+  cursor: pointer;
+  border-radius: 12px;
+  border: 2px solid transparent;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s,
+    border-color 0.2s;
+  position: relative;
+  overflow: hidden;
+  background: rgba(22, 24, 48, 0.85);
+  display: flex;
+  flex-direction: column;
+}
+
+.rule-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  border-color: var(--gold-dim);
+}
+
+/* Risk hover overrides */
+.rule-card.risk-low:hover {
+  border-color: var(--risk-low);
+}
+
+.rule-card.risk-medium:hover {
+  border-color: var(--risk-medium);
+}
+
+.rule-card.risk-high:hover {
+  border-color: var(--risk-high);
+  animation: danger-pulse 1.8s ease-in-out infinite;
+}
+
+/* Rule card typography */
+.rule-card .rule-name-he {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.rule-card .rule-name-en {
+  font-size: 11px;
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+}
+
+.rule-card .rule-desc {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+.rule-card .rule-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
+
+/* ------------------------------------------------------------
+   Risk Badge
+   ------------------------------------------------------------ */
+.risk-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+
+.risk-badge.low {
+  background: rgba(34, 197, 94, 0.15);
+  color: var(--risk-low);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+.risk-badge.medium {
+  background: rgba(245, 158, 11, 0.15);
+  color: var(--risk-medium);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.risk-badge.high {
+  background: rgba(239, 68, 68, 0.15);
+  color: var(--risk-high);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+/* ------------------------------------------------------------
+   Multiplier Badge & Stability Delta
+   ------------------------------------------------------------ */
+.multiplier-badge {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-gold);
+}
+
+.stability-delta {
+  font-size: 11px;
+}
+
+.stability-delta.positive {
+  color: var(--risk-low);
+}
+
+.stability-delta.negative {
+  color: var(--risk-high);
+}
+
+/* ------------------------------------------------------------
+   Active Rules Bar
+   ------------------------------------------------------------ */
+.active-rules-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+
+.rule-chip {
+  font-size: 11px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--gold-dim);
+  background: rgba(201, 162, 39, 0.1);
+  color: var(--text-gold);
+}
+
+.rule-chip.risk-high {
+  border-color: rgba(239, 68, 68, 0.5);
+  color: var(--risk-high);
+  background: rgba(239, 68, 68, 0.1);
+}
+
+/* ------------------------------------------------------------
+   HUD / Bottom Panel
+   ------------------------------------------------------------ */
+.bottom-hud {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 24px;
+  background: rgba(10, 15, 30, 0.9);
+  border-top: 1px solid var(--gold-dim);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* ------------------------------------------------------------
+   Buttons
+   ------------------------------------------------------------ */
+.btn {
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  border: none;
+  font-size: 14px;
+  font-family: inherit;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #c9a227, #e3c060);
+  color: #0a0f1e;
+}
+
+.btn-primary:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+
+.btn-danger {
+  background: rgba(239, 68, 68, 0.2);
+  color: var(--risk-high);
+  border: 1px solid rgba(239, 68, 68, 0.4);
+}
+
+.btn-danger:hover {
+  background: rgba(239, 68, 68, 0.3);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-secondary);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+  transform: translateY(-1px);
+}
+
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none !important;
+  filter: none !important;
+}
+
+/* ------------------------------------------------------------
+   Stability Visual States
+   ------------------------------------------------------------ */
+
+/* Warning: subtle border pulse on panels */
+.stability-warning .panel-frame {
+  animation: panel-warning-pulse 2s ease-in-out infinite;
+}
+
+@keyframes panel-warning-pulse {
+  0%, 100% { border-color: var(--gold-dim); }
+  50%       { border-color: var(--risk-medium); }
+}
+
+/* Danger: crack overlay via ::after */
+.stability-danger::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 999;
+  opacity: var(--crack-intensity, 0.3);
+  background:
+    radial-gradient(ellipse at 0% 0%,   rgba(100, 0, 0, 0.35) 0%, transparent 55%),
+    radial-gradient(ellipse at 100% 0%,  rgba(236, 72, 153, 0.2) 0%, transparent 45%),
+    radial-gradient(ellipse at 0% 100%,  rgba(236, 72, 153, 0.2) 0%, transparent 45%),
+    radial-gradient(ellipse at 100% 100%,rgba(100, 0, 0, 0.35) 0%, transparent 55%);
+  animation: danger-pulse 2.5s ease-in-out infinite;
+}
+
+/* Critical: screen pulse */
+.stability-critical #game-container {
+  animation: screen-pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes screen-pulse {
+  0%, 100% { filter: brightness(1); }
+  50%       { filter: brightness(0.88) saturate(1.3); }
+}
+
+/* ------------------------------------------------------------
+   Shared Animations
+   ------------------------------------------------------------ */
+@keyframes danger-pulse {
+  0%, 100% { opacity: var(--crack-intensity, 0); }
+  50%       { opacity: calc(var(--crack-intensity, 0) * 1.5); }
+}
+
+@keyframes score-pop {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.3); }
+  100% { transform: scale(1); }
+}
+
+.score-popping {
+  animation: score-pop 0.3s ease-out;
+}
+
+/* ------------------------------------------------------------
+   Game Logo
+   ------------------------------------------------------------ */
+.game-logo {
+  font-family: 'Cinzel', serif;
+  font-size: 2.5rem;
+  background: linear-gradient(135deg, #c9a227, #e3c060, #c9a227);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: none;
+  letter-spacing: 0.1em;
+  line-height: 1.2;
+}
+
+/* ------------------------------------------------------------
+   Deck Stack
+   ------------------------------------------------------------ */
+.deck-stack {
+  position: relative;
+  width: 85px;
+  height: 119px;
+  cursor: pointer;
+}
+
+.deck-stack img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+}
+
+.deck-count {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+/* ------------------------------------------------------------
+   Progress Bar
+   ------------------------------------------------------------ */
+.progress-bar {
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--gold-dim), var(--gold));
+  border-radius: 999px;
+  transition: width 0.5s ease;
+}
+
+/* ------------------------------------------------------------
+   Scrollbar Styling
+   ------------------------------------------------------------ */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gold-dim);
+  border-radius: 2px;
+}
+
+/* ------------------------------------------------------------
+   Coin Display
+   ------------------------------------------------------------ */
+.coin-display {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-gold);
+  font-weight: 700;
+}
+
+.coin-display::before {
+  content: '';
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, var(--gold-light), var(--gold-dim));
+  border: 1px solid var(--gold);
+  flex-shrink: 0;
+}
